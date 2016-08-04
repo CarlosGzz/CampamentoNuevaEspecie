@@ -1,0 +1,263 @@
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Encuesta Staff Campamento Nueva Especie">
+    <meta name="author" content="Carlos Gonzalez">
+    <link rel="icon" href="VIEW/IMG/lxmlogo.png">
+
+    <title>Encuesta Staff Campamento Nueva Especie</title>
+
+    <!-- Bootstrap core CSS -->
+
+    <link href="VIEW/CSS/bootstrap.min.css" rel="stylesheet">
+
+    <link href="VIEW/FONTS/css/font-awesome.min.css" rel="stylesheet">
+    <link href="VIEW/CSS/animate.min.css" rel="stylesheet">
+
+    <!-- Custom styling plus plugins -->
+    <link href="VIEW/CSS/custom.css" rel="stylesheet">
+    <link href="VIEW/CSS/icheck/flat/green.css" rel="stylesheet" />
+    <!-- Datatables -->
+    <link href="CONTROLLER/JS/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="CONTROLLER/JS/datatables/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="CONTROLLER/JS/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="CONTROLLER/JS/datatables/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="CONTROLLER/JS/datatables/scroller.bootstrap.min.css" rel="stylesheet">
+
+    <!-- Select2 -->
+    <link href="VIEW/CSS/select/select2.min.css" rel="stylesheet">
+    <!-- Switchery -->
+    <link href="VIEW/CSS/switchery/switchery.min.css" rel="stylesheet">
+
+    <script src="CONTROLLER/JS/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <!-- page content -->
+    <br>
+    <div class="row">
+        <div lass="col-md-8 col-sm-8 col-xs-10 col-md-offset-2 col-sm-offset-2 col-xs-offset-1">
+            <div class="page-title">
+                <h3 style="color: white; text-align: center;">
+                    Formulario Saff Campamento Nueva Especie
+                </h3>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-8 col-sm-8 col-xs-10 col-md-offset-2 col-sm-offset-2 col-xs-offset-1">
+            <div class="x_panel" >
+                <div class="x_content">
+                    <br>
+                    <div class="alert alert-danger" role="alert" id="mensajeStaff" style="display: none;"></div>
+                    <form id="staffForm" data-parsley-validate class="form-horizontal form-label-left" >
+                        <div class="form-group">
+                            <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> 
+                                Nombre<span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="nombre" name="nombre" required="required" class="form-control col-md-7 col-xs-12" maxlength="120">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="apellidoPaterno" class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
+                                Apellido Paterno<span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="apellidoPaterno" name="apellidoPaterno" required="required" class="form-control col-md-7 col-xs-12" maxlength="120">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="apellidoMaterno" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Apellido Materno<span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="apellidoMaterno" name="apellidoMaterno" required="required" class="form-control col-md-7 col-xs-12" maxlength="120">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="genero" class="control-label col-md-3 col-sm-3 col-xs-12">Genero</label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <p>
+                                        M:
+                                        <input id="genero" type="radio" class="flat" name="genero" value="M" checked=""/> 
+                                        F:
+                                        <input id="genero" type="radio" class="flat" name="genero" value="F" />
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="fechaNacimiento" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Fecha de Nacimiento<span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input id="fechaNacimiento" class="form-control col-md-7 col-xs-12" required="required" type="date" title="Mes/Dia/Año">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="gaia" class="control-label col-md-3 col-sm-3 col-xs-12">Gaia<span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select id="gaia" class="form-control" required>
+                                    <option value="1">Draco</option>
+                                    <option value="2">Fenix</option>
+                                    <option value="3">Lycan</option>
+                                    <option value="4">Quimera</option>
+                                    <option value="5">Unicornio</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="rolDeseado" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Rol Deseado<span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select id="rolDeseado" name="rolDeseado" class="form-control" required>
+                                    <option value="front">Front</option>
+                                    <option value="back">Back</option>
+                                    <option value="ambos">Ambos</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="correo" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Correo<span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="email" id="correo" name="correo" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefonoCel" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Celular<span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="telefonoCel" name="telefonoCel" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 col-sm-offset-3">
+                                <button type="submit" class="btn btn-primary">Cancel</button>
+                                <button id="submitStaff" type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- bootstrap js -->
+    <script src="CONTROLLER/JS/bootstrap.min.js"></script>
+    <!-- bootstrap progress js -->
+    <script src="CONTROLLER/JS/progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="CONTROLLER/JS/nicescroll/jquery.nicescroll.min.js"></script>
+    <!-- icheck -->
+    <script src="CONTROLLER/JS/icheck/icheck.min.js"></script>
+    <!-- custom js -->
+    <script src="CONTROLLER/JS/custom.js"></script>
+
+    <!-- Parsley -->
+    <script src="CONTROLLER/JS/parsley/parsley.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $.listen('parsley:field:validate', function() {
+          validateFront();
+        });
+        $('#staffForm .btn').on('click', function() {
+          $('#staffForm').parsley().validate();
+          validateFront();
+        });
+        var validateFront = function() {
+          if (true === $('#staffForm').parsley().isValid()) {
+            $('.bs-callout-info').removeClass('hidden');
+            $('.bs-callout-warning').addClass('hidden');
+          } else {
+            $('.bs-callout-info').addClass('hidden');
+            $('.bs-callout-warning').removeClass('hidden');
+          }
+        };
+      });
+
+      try {
+        hljs.initHighlightingOnLoad();
+      } catch (err) {}
+    </script>
+    <!-- /Parsley -->
+
+    <!-- Script para dar de alta un lugar con ajax--> 
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("#submitStaff").click(function(){
+            var nombre = $("#nombre").val();
+            var apellidoPaterno = $("#apellidoPaterno").val();
+            var apellidoMaterno = $("#apellidoMaterno").val();
+            var genero = $("#genero").val();
+            var fechaNacimiento = String($("#fechaNacimiento").val());
+            var gaia = $("#gaia").val();
+            var rolDeseado = $("#rolDeseado").val();
+            var correo = $("#correo").val();
+            var telefonoCel = $("#telefonoCel").val();
+            // Returns successful data submission message when the entered information is stored in database.
+            if(nombre==''|| apellidoPaterno=='' || apellidoMaterno=='' || genero==''|| fechaNacimiento==''|| rolDeseado==''|| correo==''|| telefonoCel==''|| gaia=='') {
+                alert("Favor de llenar todos los campos");
+            }else{
+            // AJAX Code To Submit Form.
+                $.ajax({
+                    url: "CONTROLLER/encuestaStaff.php",
+                    method: 'POST',
+                    data: {nombre:nombre, apellidoPaterno:apellidoPaterno, apellidoMaterno:apellidoMaterno, genero:genero,fechaNacimiento:fechaNacimiento,gaia:gaia,rolDeseado:rolDeseado,correo:correo,telefonoCel:telefonoCel},
+                    cache: false,
+                    success: function(result){
+                        if(result=='1'){
+                            $('#mensajeStaff').empty(),
+                            $('#mensajeStaff').show(),
+                            $('#mensajeStaff').removeClass("alert alert-danger")
+                            $('#mensajeStaff').addClass("alert alert-success"),
+                            $('#mensajeStaff').html('<span aria-hidden="true"><i class="fa fa-check"></i></span>Muchas Gracias por llenar la Encuesta');
+                            $("#staffForm ").trigger("reset");
+                        }else{
+                            $('#mensajeStaff').empty(),
+                            $('#mensajeStaff').removeClass("alert alert-success")
+                            $('#mensajeStaff').addClass("alert alert-danger"),
+                            $('#mensajeStaff').show(),
+                            $('#mensajeStaff').html('<span aria-hidden="true"><i class="fa fa-close"></i></span> Error al hacer la encuesta ');
+                        }
+                    }
+                });
+            }
+            return false;
+        });
+    }); 
+    </script>
+
+    <script type="text/javascript">
+     $("#staffForm :input").tooltip({
+ 
+        // place tooltip on the right edge
+        position: "center right",
+ 
+        // a little tweaking of the position
+        offset: [-2, 10],
+ 
+        // use the built-in fadeIn/fadeOut effect
+        effect: "fade",
+ 
+        // custom opacity setting
+        opacity: 0.7
+ 
+      });
+    </script>
+</body>
+</html>

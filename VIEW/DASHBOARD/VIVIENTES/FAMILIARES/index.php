@@ -22,27 +22,27 @@
 
     <!-- Bootstrap core CSS -->
 
-    <link href="../../CSS/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../CSS/bootstrap.min.css" rel="stylesheet">
 
-    <link href="../../FONTS/css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../CSS/animate.min.css" rel="stylesheet">
+    <link href="../../../FONTS/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../../CSS/animate.min.css" rel="stylesheet">
 
     <!-- Custom styling plus plugins -->
-    <link href="../../CSS/custom.css" rel="stylesheet">
-    <link href="../../CSS/icheck/flat/green.css" rel="stylesheet" />
+    <link href="../../../CSS/custom.css" rel="stylesheet">
+    <link href="../../../CSS/icheck/flat/green.css" rel="stylesheet" />
     <!-- Datatables -->
-    <link href="../../../CONTROLLER/JS/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link href="../../../CONTROLLER/JS/datatables/buttons.bootstrap.min.css" rel="stylesheet">
-    <link href="../../../CONTROLLER/JS/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet">
-    <link href="../../../CONTROLLER/JS/datatables/responsive.bootstrap.min.css" rel="stylesheet">
-    <link href="../../../CONTROLLER/JS/datatables/scroller.bootstrap.min.css" rel="stylesheet">
+    <link href="../../../../CONTROLLER/JS/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="../../../../CONTROLLER/JS/datatables/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="../../../../CONTROLLER/JS/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="../../../../CONTROLLER/JS/datatables/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="../../../../CONTROLLER/JS/datatables/scroller.bootstrap.min.css" rel="stylesheet">
 
     <!-- Select2 -->
-    <link href="../../CSS/select/select2.min.css" rel="stylesheet">
+    <link href="../../../CSS/select/select2.min.css" rel="stylesheet">
     <!-- Switchery -->
-    <link href="../../CSS/switchery/switchery.min.css" rel="stylesheet">
+    <link href="../../../CSS/switchery/switchery.min.css" rel="stylesheet">
 
-    <script src="../../../CONTROLLER/JS/jquery.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/jquery.min.js"></script>
 
 </head>
 
@@ -56,7 +56,7 @@
 
                     <!--Titulo del app-->
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.php" class="site_title"><img id="mainIcon" style="width:30px;height:30px" src="../../IMG/lxmlogo.png" alt="Logo Latiendo Por Mexico">
+                        <a href="index.php" class="site_title"><img id="mainIcon" style="width:30px;height:30px" src="../../../IMG/lxmlogo.png" alt="Logo Latiendo Por Mexico">
                             <span>Nueva Especie</span>
                         </a>
                     </div>
@@ -66,7 +66,7 @@
                     <!-- menu prile quick info -->
                     <div class="profile">
                         <div class="profile_pic">
-                            <img src="../../IMG/profile<?php echo $_SESSION['usuario'];?>.jpg" alt="..." class="img-circle profile_img">
+                            <img src="../../../IMG/profile<?php echo $_SESSION['usuario'];?>.jpg" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
                             <span>Hola,</span>
@@ -85,38 +85,38 @@
                         <div class="menu_section">
                             <h3></h3>
                             <ul class="nav side-menu">
-                                <li><a href="../"><i class="fa fa-bar-chart"></i>Dashboard</a>
+                                <li><a href="../../"><i class="fa fa-bar-chart"></i>Dashboard</a>
         
                                 </li>
                                 <li class="active"><a><i class="fa fa-users"></i>Vivientes <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li class="active"><a href="#">Vivientes</a>
+                                        <li class="active"><a href="../">Vivientes</a>
                                         </li>
-                                        <li><a href="FAMILIARES/index.php">Familiares</a>
+                                        <li><a href="#">Familiares</a>
                                         </li>
-                                        <li><a href="PALANCAS/index.php">Palancas</a>
+                                        <li><a href="../PALANCAS/index.php">Palancas</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-star"></i>Staff <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="../STAFF/index.php">Staff</a>
+                                        <li><a href="../../../STAFF/index.php">Staff</a>
                                         </li>
-                                        <li><a href="../STAFF/PAGOS/pagosStaff.php">Pagos</a>
+                                        <li><a href="../../../STAFF/PAGOS/pagosStaff.php">Pagos</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-bank"></i>Administrativo <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="../ADMINISTRATIVO/index.php">Ingresos/Egresos</a>
+                                        <li><a href="../../../ADMINISTRATIVO/index.php">Ingresos/Egresos</a>
                                         </li>
-                                        <li><a href="../ADMINISTRATIVO/fotos.php">Gastos Fijos</a>
+                                        <li><a href="../../../ADMINISTRATIVO/fotos.php">Gastos Fijos</a>
                                         </li>
-                                        <li><a href="../ADMINISTRATIVO/fotos.php">Cocina</a>
+                                        <li><a href="../../../ADMINISTRATIVO/fotos.php">Cocina</a>
                                         </li>
-                                        <li><a href="../ADMINISTRATIVO/fotos.php">Inventario Back</a>
+                                        <li><a href="../../../ADMINISTRATIVO/fotos.php">Inventario Back</a>
                                         </li>
-                                        <li><a href="../ADMINISTRATIVO/fotos.php">Proveedores</a>
+                                        <li><a href="../../../ADMINISTRATIVO/fotos.php">Proveedores</a>
                                         </li>
                                     </ul>
                                 </li>

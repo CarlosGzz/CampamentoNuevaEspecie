@@ -338,9 +338,9 @@ body {
 .page-title .title_right .pull-right {
   margin: 10px 0;
 }
-.fixed_height_320 {
-  height: 320px;
-}
+/*.fixed_height_320 {
+  height: 200px;
+}*/
 .fixed_height_390 {
   height: 390px;
 }
@@ -1711,9 +1711,29 @@ h4.graph_title {
   top: 22px;
   z-index: 1;
 }
+.tile-stats .icon2 {
+  color: #2196f3;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  z-index: 1;
+}
+.tile-stats .icon3 {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  z-index: 1;
+}
 .tile-stats .icon i {
   margin: 0;
   font-size: 60px;
+  line-height: 0;
+  vertical-align: bottom;
+  padding: 0;
+}
+.tile-stats .icon2 i {
+  margin: 0;
+  font-size: 50px;
   line-height: 0;
   vertical-align: bottom;
   padding: 0;
