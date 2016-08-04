@@ -130,6 +130,19 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="pulsera" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Pulsera<span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select id="pulsera" name="pulsera" class="form-control" required>
+                                    <option value="verde">Verde (2 o menos campamentos)</option>
+                                    <option value="blanca">Blanca (de 3 a 4 campamentos)</option>
+                                    <option value="roja">Roja (mas de 5 campamentos)</option>
+                                    <option value="plateada">Plateada</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="correo" class="control-label col-md-3 col-sm-3 col-xs-12">
                                 Correo<span class="required">*</span>
                             </label>
@@ -207,17 +220,19 @@
             var fechaNacimiento = String($("#fechaNacimiento").val());
             var gaia = $("#gaia").val();
             var rolDeseado = $("#rolDeseado").val();
+            var pulsera = $("#pulsera").val();
             var correo = $("#correo").val();
             var telefonoCel = $("#telefonoCel").val();
+            alert(pulsera);
             // Returns successful data submission message when the entered information is stored in database.
-            if(nombre==''|| apellidoPaterno=='' || apellidoMaterno=='' || genero==''|| fechaNacimiento==''|| rolDeseado==''|| correo==''|| telefonoCel==''|| gaia=='') {
+            if(nombre==''|| apellidoPaterno=='' || apellidoMaterno=='' || genero==''|| fechaNacimiento==''|| rolDeseado==''|| correo==''|| telefonoCel==''|| gaia==''|| pulsera=='') {
                 alert("Favor de llenar todos los campos");
             }else{
             // AJAX Code To Submit Form.
                 $.ajax({
                     url: "CONTROLLER/encuestaStaff.php",
                     method: 'POST',
-                    data: {nombre:nombre, apellidoPaterno:apellidoPaterno, apellidoMaterno:apellidoMaterno, genero:genero,fechaNacimiento:fechaNacimiento,gaia:gaia,rolDeseado:rolDeseado,correo:correo,telefonoCel:telefonoCel},
+                    data: {nombre:nombre, apellidoPaterno:apellidoPaterno, apellidoMaterno:apellidoMaterno, genero:genero,fechaNacimiento:fechaNacimiento,gaia:gaia,rolDeseado:rolDeseado, pulsera:pulsera,correo:correo,telefonoCel:telefonoCel},
                     cache: false,
                     success: function(result){
                         if(result=='1'){
@@ -234,6 +249,7 @@
                             $('#mensajeStaff').show(),
                             $('#mensajeStaff').html('<span aria-hidden="true"><i class="fa fa-close"></i></span> Error al hacer la encuesta ');
                         }
+                        alert(result)
                     }
                 });
             }
