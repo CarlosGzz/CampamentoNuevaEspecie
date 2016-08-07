@@ -29,6 +29,8 @@
 
     <!-- Custom styling plus plugins -->
     <link href="../CSS/custom.css" rel="stylesheet">
+    <link href="../CSS/popup.css" rel="stylesheet">
+    <link href="../../CONTROLLER/JS/Avgrund/avgrund.css" rel="stylesheet">
     <link href="../CSS/icheck/flat/green.css" rel="stylesheet" />
 
 
@@ -38,9 +40,9 @@
 </head>
 
 
-<body class="nav-md">
-
-    <div class="container body">
+<body class="nav-md" >
+    <div class="avgrund-cover"></div>
+    <div class="container body avgrund-contents">
         <div class="main_container">
 
             <div class="col-md-3 left_col menu_fixed">
@@ -131,7 +133,7 @@
                     <!-- /sidebar menu -->
 
                     <!-- /menu footer buttons -->
-                    <div class="sidebar-footer hidden-small">
+                    <div class="sidebar-footer ">
                         <a data-toggle="tooltip" data-placement="top" title="Settings" style="color: #6A6D6D;">
                             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                         </a>
@@ -180,7 +182,7 @@
 
 
             <!-- page content -->
-            <div class="right_col" role="main">
+            <div class="right_col " role="main">
                 <div class="">
                     <div class="row">
                         <div class="page-title">
@@ -194,7 +196,7 @@
                         <div class="row top_tiles">
                             <!--Viventes Pagados-->
                             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="tile-stats">
+                                <div class="tile-stats" onclick="avgrund.activate( 'stack' );" id="vivientesPagados">
                                     <div class="icon"><i class="fa fa-money"></i></div>
                                     <div class="count">
                                     <?php
@@ -579,64 +581,64 @@
                         </div>
                         <div class="row">
                             <!--Cotizaciones-->
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div class="x_panel">
-                                <div class="x_title">
-                                    <h2>Cotizaciones</h2>
-                                    <ul class="nav navbar-right panel_toolbox">
-                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                        </li>
-                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                        </li>
-                                    </ul>
-                                    <div class="clearfix"></div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Cotizaciones</h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                            </li>
+                                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <table class="tile" style="width:100%">
+                                        <tr>
+                                            <th style="width:80%;">
+                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                                    <span class="hidden-small">Genero</span>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                    <span class="hidden-small">%</span>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="x_content">
+                                                    <div id="placeholder3xx3" class="demo-placeholder" style="width: 100%; height:250px;"></div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <table class="tile_info">
+                                                    <tr>
+                                                        <td>
+                                                            <p><i class="fa fa-square blue"></i>Total Campamento</p>
+                                                            <p>$345678</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <p><i class="fa fa-square red"></i>Restante A Pagar</p>
+                                                            <p>$345678</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <p><i class="fa fa-square green"></i>Ganancia Proyectada</p>
+                                                            <p>$345678</p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </div>
-                                <table class="tile" style="width:100%">
-                                    <tr>
-                                        <th style="width:80%;">
-                                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                                <span class="hidden-small">Genero</span>
-                                            </div>
-                                        </th>
-                                        <th>
-                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                                                <span class="hidden-small">%</span>
-                                            </div>
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="x_content">
-                                                <div id="placeholder3xx3" class="demo-placeholder" style="width: 100%; height:250px;"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <table class="tile_info">
-                                                <tr>
-                                                    <td>
-                                                        <p><i class="fa fa-square blue"></i>Total Campamento</p>
-                                                        <p>$345678</p>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <p><i class="fa fa-square red"></i>Restante A Pagar</p>
-                                                        <p>$345678</p>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <p><i class="fa fa-square green"></i>Ganancia Proyectada</p>
-                                                        <p>$345678</p>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                </table>
                             </div>
-                        </div>
-                        <!--Cotizaciones-->
+                            <!--Cotizaciones-->
                         </div>
                     </div>
                 </div>
@@ -664,9 +666,18 @@
         <div class="clearfix"></div>
         <div id="notif-group" class="tabbed_notifications"></div>
     </div>
+    <!-- popup js 
+    <aside class="avgrund-popup">
+        <h2>That's all, folks</h2>
+        <p>
+            You can hit ESC or click outside to close the modal. Give it a go to see the reverse transition.
+        </p>
+        <button onclick="avgrund.deactivate();">Close</button>
+    </aside>-->
 
     <script src="../../CONTROLLER/JS/bootstrap.min.js"></script>
-
+    <!-- popup js 
+    <script src="../../CONTROLLER/JS/popup.js"></script>-->
     <!-- chart js -->
     <script src="../../CONTROLLER/JS/chartjs/chart.min.js"></script>
     <!-- bootstrap progress js -->
@@ -954,6 +965,29 @@
             }
         }
     }
+    </script>
+    <!-- popup js -->
+    <script src="../../CONTROLLER/JS/Avgrund/jquery.avgrund.js"></script>
+    <script src="../../CONTROLLER/JS/Avgrund/jquery.avgrund.min.js"></script>
+    <script>
+    $(function() {
+        $('#vivientesPagados').avgrund({
+            width: 640, // max is 640px
+            height: 350, // max is 350px
+            closeByEscape: true, // enables closing popup by 'Esc'..
+            showClose: true,
+            showCloseText: 'Close',
+            holderClass: 'vivientesPagados',
+            enableStackAnimation: true,
+            onBlurContainer: '.container',
+            template: '<p>So implement your design and place content here! If you want to close modal, please hit "Esc", click somewhere on the screen or use special button.</p>' +
+            '<div>' +
+            '<a href="http://github.com/voronianski/jquery.avgrund.js" target="_blank" class="github">Avgrund on Github</a>' +
+            '<a href="http://twitter.com/voronianski" target="_blank" class="twitter">Twitter</a>' +
+            '<a href="http://dribbble.com/voronianski" target="_blank" class="dribble">Dribbble</a>' +
+            '</div>'
+        });
+    });
     </script>
 </body>
 

@@ -54,11 +54,12 @@
     <div class="clearfix"></div>
 
     <div class="row">
+
         <div class="col-md-8 col-sm-8 col-xs-10 col-md-offset-2 col-sm-offset-2 col-xs-offset-1">
             <div class="x_panel" >
-                <div class="x_content">
+                <div class="alert alert-danger" role="alert" id="mensajeStaff" style="display: none;"></div>
+                <div class="x_content" id="contenido">
                     <br>
-                    <div class="alert alert-danger" role="alert" id="mensajeStaff" style="display: none;"></div>
                     <form id="staffForm" data-parsley-validate class="form-horizontal form-label-left" >
                         <div class="form-group">
                             <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> 
@@ -106,11 +107,22 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="carrera" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Carrera y Universidad<span class="required">*</span>
+                            </label>
+                            <div class="col-md-3 col-sm-3 col-xs-6">
+                                <input placeholder="Carrera" type="text" id="carrera" name="carrera" required="required" class="form-control col-md-7 col-xs-12" title="Por favor escribe el nombre completo de tu carrera" min="5" maxlenght="120">
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-6">
+                                <input placeholder="Universidad" type="text" id="universidad" name="universidad" required="required" class="form-control col-md-7 col-xs-12" title="Por favor escribe el nombre de tu Universidad abreviado" maxlenght="120">
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="gaia" class="control-label col-md-3 col-sm-3 col-xs-12">Gaia<span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select id="gaia" class="form-control" required>
                                     <option value="1">Draco</option>
-                                    <option value="2">Fenix</option>
+                                    <option value="2">Fénix</option>
                                     <option value="3">Lycan</option>
                                     <option value="4">Quimera</option>
                                     <option value="5">Unicornio</option>
@@ -125,7 +137,8 @@
                                 <select id="rolDeseado" name="rolDeseado" class="form-control" required>
                                     <option value="front">Front</option>
                                     <option value="back">Back</option>
-                                    <option value="ambos">Ambos</option>
+                                    <option value="ambos">Cocina</option>
+                                    <option value="ambos">Donde se necesite</option>
                                 </select>
                             </div>
                         </div>
@@ -218,21 +231,23 @@
             var apellidoMaterno = $("#apellidoMaterno").val();
             var genero = $("#genero").val();
             var fechaNacimiento = String($("#fechaNacimiento").val());
+            var carrera = $("#carrera").val();
+            var universidad = $("#universidad").val();
             var gaia = $("#gaia").val();
             var rolDeseado = $("#rolDeseado").val();
             var pulsera = $("#pulsera").val();
             var correo = $("#correo").val();
             var telefonoCel = $("#telefonoCel").val();
-            alert(pulsera);
+            
             // Returns successful data submission message when the entered information is stored in database.
-            if(nombre==''|| apellidoPaterno=='' || apellidoMaterno=='' || genero==''|| fechaNacimiento==''|| rolDeseado==''|| correo==''|| telefonoCel==''|| gaia==''|| pulsera=='') {
-                alert("Favor de llenar todos los campos");
+            if(nombre==''|| apellidoPaterno=='' || apellidoMaterno=='' || genero==''|| fechaNacimiento==''|| carrera==''||universidad==''||rolDeseado==''|| correo==''|| telefonoCel==''|| gaia==''|| pulsera=='') {
+                //alert("Favor de llenar todos los campos");
             }else{
             // AJAX Code To Submit Form.
                 $.ajax({
                     url: "CONTROLLER/encuestaStaff.php",
                     method: 'POST',
-                    data: {nombre:nombre, apellidoPaterno:apellidoPaterno, apellidoMaterno:apellidoMaterno, genero:genero,fechaNacimiento:fechaNacimiento,gaia:gaia,rolDeseado:rolDeseado, pulsera:pulsera,correo:correo,telefonoCel:telefonoCel},
+                    data: {nombre:nombre, apellidoPaterno:apellidoPaterno, apellidoMaterno:apellidoMaterno, genero:genero,fechaNacimiento:fechaNacimiento,carrera:carrera,universidad:universidad,gaia:gaia,rolDeseado:rolDeseado, pulsera:pulsera,correo:correo,telefonoCel:telefonoCel},
                     cache: false,
                     success: function(result){
                         if(result=='1'){
@@ -240,8 +255,9 @@
                             $('#mensajeStaff').show(),
                             $('#mensajeStaff').removeClass("alert alert-danger")
                             $('#mensajeStaff').addClass("alert alert-success"),
-                            $('#mensajeStaff').html('<span aria-hidden="true"><i class="fa fa-check"></i></span>Muchas Gracias por llenar la Encuesta');
-                            $("#staffForm ").trigger("reset");
+                            $('#mensajeStaff').html('<span aria-hidden="true"><i class="fa fa-check"></i></span>Muchas Gracias por llenar la Encuesta'),
+                            $("#staffForm ").trigger("reset"),
+                            $("#contenido").hide();
                         }else{
                             $('#mensajeStaff').empty(),
                             $('#mensajeStaff').removeClass("alert alert-success")
@@ -249,7 +265,7 @@
                             $('#mensajeStaff').show(),
                             $('#mensajeStaff').html('<span aria-hidden="true"><i class="fa fa-close"></i></span> Error al hacer la encuesta ');
                         }
-                        alert(result)
+                        //alert(result)
                     }
                 });
             }
@@ -275,5 +291,7 @@
  
       });
     </script>
+
+
 </body>
 </html>

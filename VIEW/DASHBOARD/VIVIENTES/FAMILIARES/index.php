@@ -149,7 +149,7 @@
                         <a data-toggle="tooltip" data-placement="top" title="Lock" style="color: #6A6D6D;">
                             <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
                         </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Logout" style="color: #6A6D6D;" href="../../../">
+                        <a data-toggle="tooltip" data-placement="top" title="Logout" style="color: #6A6D6D;" href="../../../../">
                             <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                         </a>
                     </div>
@@ -168,13 +168,13 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="../../IMG/profile<?php echo $_SESSION['usuario'];?>.jpg" alt=""><?php echo $_SESSION['nombre'];?>
+                                    <img src="../../../IMG/profile<?php echo $_SESSION['usuario'];?>.jpg" alt=""><?php echo $_SESSION['nombre'];?>
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
 
                                 <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
                                     <li>
-                                        <a href="../../../"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                        <a href="../../../../"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                                     </li>
                                 </ul>
                             </li>
@@ -231,7 +231,7 @@
                                             </tr>
                                         </thead>
                                         <?php
-                                            require "../../../MODEL/connect.php";
+                                            require "../../../../MODEL/connect.php";
                                             $data = $db->query("SELECT * FROM viviente ORDER BY idViviente");
                                             $vivientes = array();
                                             while($object = mysqli_fetch_object($data)){
@@ -404,26 +404,26 @@
         <div id="notif-group" class="tabbed_notifications"></div>
     </div>
 
-    <script src="../../../CONTROLLER/JS/bootstrap.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/bootstrap.min.js"></script>
 
     <!-- chart js -->
-    <script src="../../../CONTROLLER/JS/chartjs/chart.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/chartjs/chart.min.js"></script>
     <!-- bootstrap progress js -->
-    <script src="../../../CONTROLLER/JS/progressbar/bootstrap-progressbar.min.js"></script>
-    <script src="../../../CONTROLLER/JS/nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/nicescroll/jquery.nicescroll.min.js"></script>
     <!-- icheck -->
-    <script src="../../../CONTROLLER/JS/icheck/icheck.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/icheck/icheck.min.js"></script>
     <!-- gauge js -->
-    <script type="text/javascript" src="../../../CONTROLLER/JS/gauge/gauge.min.js"></script>
+    <script type="text/javascript" src="../../../../CONTROLLER/JS/gauge/gauge.min.js"></script>
     <!-- daterangepicker -->
-    <script type="text/javascript" src="../../../CONTROLLER/JS/moment/moment.min2.js"></script>
-    <script type="text/javascript" src="../../../CONTROLLER/JS/datepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="../../../../CONTROLLER/JS/moment/moment.min2.js"></script>
+    <script type="text/javascript" src="../../../../CONTROLLER/JS/datepicker/daterangepicker.js"></script>
     <!-- Dropzone.js -->
-    <script src="../../../CONTROLLER/JS/dropzone/dropzone.js"></script>
+    <script src="../../../../CONTROLLER/JS/dropzone/dropzone.js"></script>
 
 
 
-    <script src="../../../CONTROLLER/JS/custom.js"></script>
+    <script src="../../../../CONTROLLER/JS/custom.js"></script>
 
 
     <!-- Script para hacer mas grande el icono --> 
@@ -470,21 +470,21 @@
     </script>
 
     <!-- DATATABLES -->
-    <script src="../../../CONTROLLER/JS/datatables/jquery.dataTables.min.js"></script>
-    <script src="../../../CONTROLLER/JS/datatables/dataTables.bootstrap.js"></script>*
-    <script src="../../../CONTROLLER/JS/datatables/dataTables.buttons.min.js"></script>
-    <script src="../../../CONTROLLER/JS/datatables/buttons.bootstrap.min.js"></script>
-    <script src="../../../CONTROLLER/JS/datatables/buttons.flash.min.js"></script>*
-    <script src="../../../CONTROLLER/JS/datatables/buttons.html5.min.js"></script>
-    <script src="../../../CONTROLLER/JS/datatables/buttons.print.min.js"></script>
-    <script src="../../../CONTROLLER/JS/datatables/dataTables.fixedHeader.min.js"></script>
-    <script src="../../../CONTROLLER/JS/datatables/dataTables.keyTable.min.js"></script>
-    <script src="../../../CONTROLLER/JS/datatables/dataTables.responsive.min.js"></script>
-    <script src="../../../CONTROLLER/JS/datatables/responsive.bootstrap.min.js"></script>*
-    <script src="../../../CONTROLLER/JS/datatables/datatables.scroller.min.js"></script>
-    <script src="../../../CONTROLLER/JS/datatables/jszip.min.js"></script>
-    <script src="../../../CONTROLLER/JS/datatables/pdfmake.min.js"></script>
-    <script src="../../../CONTROLLER/JS/datatables/vfs_fonts.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/dataTables.bootstrap.js"></script>*
+    <script src="../../../../CONTROLLER/JS/datatables/dataTables.buttons.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/buttons.bootstrap.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/buttons.flash.min.js"></script>*
+    <script src="../../../../CONTROLLER/JS/datatables/buttons.html5.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/buttons.print.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/dataTables.fixedHeader.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/dataTables.keyTable.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/dataTables.responsive.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/responsive.bootstrap.min.js"></script>*
+    <script src="../../../../CONTROLLER/JS/datatables/datatables.scroller.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/jszip.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/pdfmake.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/vfs_fonts.js"></script>
     <script>
       $(document).ready(function() {
         var handleDataTableButtons = function() {
@@ -591,7 +591,7 @@
     <!-- /DATATABLES -->
 
     <!-- Parsley -->
-    <script src="../../../CONTROLLER/JS/parsley/parsley.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/parsley/parsley.min.js"></script>
     <script>
       $(document).ready(function() {
         $.listen('parsley:field:validate', function() {
@@ -625,6 +625,6 @@
 <?php
 
   }else{
-    header("Location: ../../../index.php");
+    header("Location: ../../../../index.php");
   }
 ?>
