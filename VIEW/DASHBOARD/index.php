@@ -24,7 +24,7 @@
 
     <link href="../CSS/bootstrap.min.css" rel="stylesheet">
 
-    <link href="../VIEW/FONTS/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../FONTS/css/font-awesome.min.css" rel="stylesheet">
     <link href="../CSS/animate.min.css" rel="stylesheet">
 
     <!-- Custom styling plus plugins -->
