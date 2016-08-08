@@ -25,9 +25,6 @@
     <link href="../CSS/bootstrap.min.css" rel="stylesheet">
 
     <link href="../FONTS/css/font-awesome.min.css" rel="stylesheet">
-    <link href="../FONTS/glyphicons-halflings-regular.woff2" rel="stylesheet">
-    <link href="../FONTS/glyphicons-halflings-regular.woff" rel="stylesheet">
-    <link href="../FONTS/glyphicons-halflings-regular.ttf" rel="stylesheet">
     <link href="../CSS/animate.min.css" rel="stylesheet">
 
     <!-- Custom styling plus plugins -->
@@ -983,7 +980,12 @@
             holderClass: 'vivientesPagados',
             enableStackAnimation: true,
             onBlurContainer: '.container',
-            template: 
+            template: '<p>So implement your design and place content here! If you want to close modal, please hit "Esc", click somewhere on the screen or use special button.</p>' +
+            '<div>' +
+            '<a href="http://github.com/voronianski/jquery.avgrund.js" target="_blank" class="github">Avgrund on Github</a>' +
+            '<a href="http://twitter.com/voronianski" target="_blank" class="twitter">Twitter</a>' +
+            '<a href="http://dribbble.com/voronianski" target="_blank" class="dribble">Dribbble</a>' +
+            '</div>'
         });
     });
     </script>

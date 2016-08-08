@@ -7,7 +7,6 @@
 	}
 	$tableString = "<tbody>";
 	foreach ($staff as $staf) {
-	
 		$tableString.= "<tr>";
 		$tableString.= "<td>".$staf->nombre."</td>";
 		$tableString.= "<td>".$staf->apellidoPaterno." ".$staf->apellidoMaterno."</td>";
@@ -15,8 +14,23 @@
 		$tableString.= "<td>";
 		if(!empty($staf->fechaNacimiento) || $staf->fechaNacimiento != null){
 			$birthDate = $staf->fechaNacimiento;
-			$birthDate = explode("-", $birthDate);
-			$age = (date("md", date("U", mktime(0, 0, 0, $birthDate[2], $birthDate[1], $birthDate[0]))) > date("md")? ((date("Y") - $birthDate[0]) - 1): (date("Y") - $birthDate[0]));
+			$birthDate = explode("-", $staf->fechaNacimiento);
+             //var_dump($birthDate);
+			if($birthDate[0]<=2016){
+				if($birthDate[1]==8){
+					if($birthDate[2]>7){
+						$age = 2016-$birthDate[0]-1;
+					}else{
+						$age = 2016-$birthDate[0];
+					}
+				}else{
+					if($birthDate[1]>8){
+						$age = 2016-$birthDate[0]-1;
+					}else{
+						$age = 2016-$birthDate[0];
+					}
+				}
+			}
 		}else{
 			$age = 0;  
 		}
