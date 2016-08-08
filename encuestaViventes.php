@@ -208,9 +208,7 @@
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
                                         <select id="staff" name="staff" class="form-control" required>
-                                            <option value="Facebook">Facebook</option>
-                                            <option value="baStaffck">Staff</option>
-                                            <option value="ambos">Anuncio</option>
+                                            <?php require "CONTROLLER/staffDropdown.php";?>
                                             <option value="Otro">Otro</option>
                                         </select>
                                     </div>
@@ -1496,14 +1494,14 @@
     <!-- /Validacion de Tablas Radio-->
 
     <script>
-        $("#medioCampamento").click(function(){
+        $("#medioCampamento").on('change',function(){
             if($("#medioCampamento").val() == "Miembro de Staff"){
                 $("#inputStaff").show();
             }else{
                 $("#inputStaff").hide();
             }
         });
-        $("#inputStaff").click(function(){
+        $("#inputStaff").on('change',function(){
             if($("#staff").val() == "Otro"){
                 $("#inputStaff2").show();
             }else{
