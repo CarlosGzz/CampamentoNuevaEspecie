@@ -111,7 +111,7 @@
                                 Carrera y Universidad<span class="required">*</span>
                             </label>
                             <div class="col-md-3 col-sm-3 col-xs-6">
-                                <input placeholder="Carrera" type="text" id="carrera" name="carrera" required="required" class="form-control col-md-7 col-xs-12" title="Por favor escribe el nombre completo de tu carrera" maxlenght="120">
+                                <input placeholder="Carrera" type="text" id="carrera" name="carrera" required="required" class="form-control col-md-7 col-xs-12" title="Por favor escribe el nombre completo de tu carrera" min="5" maxlenght="120">
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-6">
                                 <input placeholder="Universidad" type="text" id="universidad" name="universidad" required="required" class="form-control col-md-7 col-xs-12" title="Por favor escribe el nombre de tu Universidad abreviado" maxlenght="120">
@@ -265,7 +265,7 @@
                             $('#mensajeStaff').show(),
                             $('#mensajeStaff').html('<span aria-hidden="true"><i class="fa fa-close"></i></span> Error al hacer la encuesta ');
                         }
-                        alert(result)
+                        //alert(result)
                     }
                 });
             }
