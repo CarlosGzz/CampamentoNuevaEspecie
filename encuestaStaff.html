@@ -91,7 +91,7 @@
                                 <div class="btn-group" data-toggle="buttons">
                                     <p>
                                         M:
-                                        <input id="genero" type="radio" class="flat" name="genero" value="M" checked=""/> 
+                                        <input id="genero" type="radio" class="flat" name="genero" value="M" checked/> 
                                         F:
                                         <input id="genero" type="radio" class="flat" name="genero" value="F" />
                                     </p>
@@ -229,7 +229,7 @@
             var nombre = $("#nombre").val();
             var apellidoPaterno = $("#apellidoPaterno").val();
             var apellidoMaterno = $("#apellidoMaterno").val();
-            var genero = $("#genero").val();
+            var genero = $("#genero:checked").val();
             var fechaNacimiento = String($("#fechaNacimiento").val());
             var carrera = $("#carrera").val();
             var universidad = $("#universidad").val();
@@ -238,7 +238,7 @@
             var pulsera = $("#pulsera").val();
             var correo = $("#correo").val();
             var telefonoCel = $("#telefonoCel").val();
-            
+            alert(genero);
             // Returns successful data submission message when the entered information is stored in database.
             if(nombre==''|| apellidoPaterno=='' || apellidoMaterno=='' || genero==''|| fechaNacimiento==''|| carrera==''||universidad==''||rolDeseado==''|| correo==''|| telefonoCel==''|| gaia==''|| pulsera=='') {
                 //alert("Favor de llenar todos los campos");
