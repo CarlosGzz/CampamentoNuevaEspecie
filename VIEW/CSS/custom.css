@@ -3023,7 +3023,6 @@ ul.social li {
   margin: 0;
   padding: 0;
   border: 0 solid #CCC;
-  overflow-x: hidden;
 }
 
 /**-------**/
@@ -3092,7 +3091,7 @@ ul.social li {
 /**-------**/
 
 .wizard_verticle .stepContainer {
-  width: 80%;
+  width: 100%;
   float: left;
   padding: 0 10px;
 }
@@ -3104,9 +3103,8 @@ ul.social li {
   padding: 5px;
   font: normal 12px Verdana, Arial, Helvetica, sans-serif;
   color: #5A5655;
-  height: 300px !important;
+  height: auto;
   text-align: left;
-  overflow: auto;
   z-index: 88;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -3134,9 +3132,9 @@ ul.social li {
 /**-------**/
 
 .wizard_verticle .wizard_content {
-  width: 80%;
+  width: 100%;
   float: left;
-  padding-left: 20px;
+  /*padding-left: 20px;*/
 }
 .wizard_verticle ul.wizard_steps {
   display: table;
