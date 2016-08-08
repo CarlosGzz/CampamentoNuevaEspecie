@@ -192,16 +192,16 @@
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3> Vivientes <small>informacion de Vivientes y alta</small></h3>
+                            <h3> Staff <small>informacion de Staff</small></h3>
                         </div>
                     </div>
                     <!-- Table -->
                     
-                    <div class="row">
+                    <div class="row" id="tablaStaff">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Tabla de Vivientes <small></small></h2>
+                                    <h2>Tabla de Staff <small></small></h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
@@ -216,66 +216,21 @@
                                     <table id="datatable-buttons" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Genero</th>
                                                 <th>Nombre</th>
                                                 <th>Apellido</th>
+                                                <th>Genero</th>
                                                 <th>Edad</th>
-                                                <th>Telefono</th>
-                                                <th>Celular</th>
                                                 <th>Correo</th>
+                                                <th>Celular</th>
                                                 <th>Gaia</th>
-                                                <th>Pagado</th>
-                                                <th>Carta Responsabilidad</th>
-                                                <th>Carta Seguro</th>
-                                                <th>Observaciones</th>
+                                                <th>Rol Deseado</th>
+                                                <th>Pulsera</th>
+                                                <th>Carrera</th>
+                                                <th>Universidad</th>
                                             </tr>
                                         </thead>
                                         <?php
-                                            require "../../../MODEL/connect.php";
-                                            $data = $db->query("SELECT * FROM viviente ORDER BY idViviente");
-                                            $vivientes = array();
-                                            while($object = mysqli_fetch_object($data)){
-                                                $vivientes[]=$object;
-                                            }
-                                            $tableString = "<tbody>";
-                                            foreach ($vivientes as $viviente) {
-                                                $tableString.= "<tr>";
-                                                $tableString.= "<td>".$viviente->sexo."</td>";
-                                                $tableString.= "<td>".$viviente->nombre."</td>";
-                                                $tableString.= "<td>".$viviente->apellidoPaterno." ".$viviente->apellidoMaterno."</td>";
-                                                $tableString.= "<td>";
-                                                if(!empty($viviente->fechaNacimiento) || $viviente->fechaNacimiento != null){
-                                                    $birthDate = $viviente->fechaNacimiento;
-                                                    $birthDate = explode("-", $birthDate);
-                                                    $age = (date("md", date("U", mktime(0, 0, 0, $birthDate[2], $birthDate[1], $birthDate[0]))) > date("md")? ((date("Y") - $birthDate[0]) - 1): (date("Y") - $birthDate[0]));
-                                                }else{
-                                                    $age = 0;  
-                                                }
-                                                $tableString.= $age."</td>";
-                                                $tableString.= "<td>".$viviente->telefonoCasa."</td>";
-                                                $tableString.= "<td>".$viviente->telefonoCel."</td>";
-                                                $tableString.= "<td>".$viviente->correo."</td>";
-                                                $tableString.= "<td>".$viviente->gaia."</td>";
-                                                $tableString.= "<td>".$viviente->pagado."</td>";
-                                                $tableString.= "<td>";
-                                                if($viviente->cartaSeguro == 1){
-                                                    $tableString.= "firmada";
-                                                }else{
-                                                    $tableString.= "no firmada";
-                                                }
-                                                $tableString.= "</td>";
-                                                $tableString.= "<td>";
-                                                if($viviente->cartaDeslinde == 1){
-                                                    $tableString.= "firmada";
-                                                }else{
-                                                    $tableString.= "no firmada";
-                                                }
-                                                $tableString.= "</td>";
-                                                $tableString.= "<td>".$viviente->observaciones."</td>";
-                                                $tableString.= "</tr>";
-                                            }
-                                            $tableString.= "</tbody>";
-                                            echo $tableString;
+                                         require "../../../CONTROLLER/staffTabla.php";
                                         ?>
                                     </table>
                                 </div>
@@ -284,97 +239,130 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6 col-xs-12">   
-                            <!-- FORM de Viviente -->
-                            <div class="x_panel">
-                                <div class="x_title">
-                                    <h2>Registrar Viviente<small></small></h2>
-                                    <ul class="nav navbar-right panel_toolbox">
-                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                        </li>
-                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                        </li>
-                                    </ul>
-                                    <div class="clearfix"></div>
-                                </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel" >
+                                <div class="alert alert-danger" role="alert" id="mensajeStaff" style="display: none;"></div>
                                 <div class="x_content">
-
-                                    <!-- start form for validation -->
-                                    <form action="../../../CONTROLLER/altaViviente.php" method="POST" name="altaViviente" id="demo-form" data-parsley-validate>
-                                        <label for="fullname">Nombre * :</label>
-                                        <input type="text" id="nombre" class="form-control" name="nombre" required />
-
-                                        <label for="fullname">Apellido Paterno * :</label>
-                                        <input type="text" id="apellidoPaterno" class="form-control" name="apellidoPaterno" required />
-
-                                        <label for="fullname">Apellido Materno * :</label>
-                                        <input type="text" id="apellidoMaterno" class="form-control" name="apellidoMaterno" required />
-
-                                        <label for="email">Correo * :</label>
-                                        <input type="email" id="correo" class="form-control" name="correo" data-parsley-trigger="change" required />
-
-                                        <label>Genero *:</label>
-                                        <p>
-                                            M: <input type="radio" class="flat" name="genero" id="genderM" value="M" checked="" required /> 
-                                            F: <input type="radio" class="flat" name="genero" id="genderF" value="F" />
-                                        </p>                          
-
-                                        <label for="message">Observaciones (20 chars min, 250 max) :</label>
-                                        <textarea id="observaciones" required="required" class="form-control" name="observaciones" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="250" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
-                                        data-parsley-validation-threshold="10"></textarea>
-
-                                        <br/>
-                                        <input type="submit" name="submit" value="Submit" class="btn btn-primary" />
+                                    <br>
+                                    <form id="staffForm" data-parsley-validate class="form-horizontal form-label-left" >
+                                        <div class="form-group">
+                                            <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> 
+                                                Nombre<span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" id="nombre" name="nombre" required="required" class="form-control col-md-7 col-xs-12" maxlength="120">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="apellidoPaterno" class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
+                                                Apellido Paterno<span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" id="apellidoPaterno" name="apellidoPaterno" required="required" class="form-control col-md-7 col-xs-12" maxlength="120">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="apellidoMaterno" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                                Apellido Materno<span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" id="apellidoMaterno" name="apellidoMaterno" required="required" class="form-control col-md-7 col-xs-12" maxlength="120">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="genero" class="control-label col-md-3 col-sm-3 col-xs-12">Genero</label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="btn-group" data-toggle="buttons">
+                                                    <p>
+                                                        M:
+                                                        <input id="genero" type="radio" class="flat" name="genero" value="M" checked=""/> 
+                                                        F:
+                                                        <input id="genero" type="radio" class="flat" name="genero" value="F" />
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="fechaNacimiento" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                                Fecha de Nacimiento<span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input id="fechaNacimiento" class="form-control col-md-7 col-xs-12" required="required" type="date" title="Mes/Dia/Año">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="carrera" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                                Carrera y Universidad<span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-3 col-sm-3 col-xs-6">
+                                                <input placeholder="Carrera" type="text" id="carrera" name="carrera" required="required" class="form-control col-md-7 col-xs-12" title="Por favor escribe el nombre completo de tu carrera" min="5" maxlenght="120">
+                                            </div>
+                                            <div class="col-md-3 col-sm-3 col-xs-6">
+                                                <input placeholder="Universidad" type="text" id="universidad" name="universidad" required="required" class="form-control col-md-7 col-xs-12" title="Por favor escribe el nombre de tu Universidad abreviado" maxlenght="120">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="gaia" class="control-label col-md-3 col-sm-3 col-xs-12">Gaia<span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <select id="gaia" class="form-control" required>
+                                                    <option value="1">Draco</option>
+                                                    <option value="2">Fénix</option>
+                                                    <option value="3">Lycan</option>
+                                                    <option value="4">Quimera</option>
+                                                    <option value="5">Unicornio</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="rolDeseado" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                                Rol Deseado<span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <select id="rolDeseado" name="rolDeseado" class="form-control" required>
+                                                    <option value="front">Front</option>
+                                                    <option value="back">Back</option>
+                                                    <option value="ambos">Cocina</option>
+                                                    <option value="ambos">Donde se necesite</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="pulsera" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                                Pulsera<span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <select id="pulsera" name="pulsera" class="form-control" required>
+                                                    <option value="verde">Verde (2 o menos campamentos)</option>
+                                                    <option value="blanca">Blanca (de 3 a 4 campamentos)</option>
+                                                    <option value="roja">Roja (mas de 5 campamentos)</option>
+                                                    <option value="plateada">Plateada</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="correo" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                                Correo<span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="email" id="correo" name="correo" required="required" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="telefonoCel" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                                Celular<span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" id="telefonoCel" name="telefonoCel" required="required" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+                                        <div class="ln_solid"></div>
+                                        <div class="form-group">
+                                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 col-sm-offset-3">
+                                                <button type="submit" class="btn btn-primary">Cancel</button>
+                                                <button id="submitStaff" type="submit" class="btn btn-success">Submit</button>
+                                            </div>
+                                        </div>
                                     </form>
-                                    <!-- end form for validations -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xs-12"> 
-                            <!-- FORM de Viviente -->
-                            <div class="x_panel">
-                                <div class="x_title">
-                                    <h2>Subir Excel Vivientes a  Base de Datos</h2>
-                                    <ul class="nav navbar-right panel_toolbox">
-                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                        </li>
-                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                        </li>
-                                    </ul>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="x_content">
-                                    <p>Slecciona o arrastra el archivo de excel para subir a la base de datos</p>
-                                    <form  action="../../../CONTROLLER/subirExcelViviente.php" name="import" method="POST" enctype="multipart/form-data">
-                                        <input type="file" name="file" /><br />
-                                        <input type="submit" name="submit" value="Submit" class="btn btn-primary" />
-                                    </form>
-                                    <br />
-                                    <br />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xs-12"> 
-                            <!-- FORM de Viviente -->
-                            <div class="x_panel">
-                                <div class="x_title">
-                                    <h2>Subir Excel Completo a  Base de Datos</h2>
-                                    <ul class="nav navbar-right panel_toolbox">
-                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                        </li>
-                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                        </li>
-                                    </ul>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="x_content">
-                                    <p>Slecciona o arrastra el archivo de excel para subir a la base de datos</p>
-                                    <form  action="index.php"name="import" method="POST" enctype="multipart/form-data">
-                                        <input type="file" name="file" /><br />
-                                        <input type="submit" name="submit" value="Submit" class="btn btn-primary"/>
-                                    </form>
-                                    <br />
-                                    <br />
                                 </div>
                             </div>
                         </div>
@@ -531,63 +519,6 @@
         TableManageButtons.init();
       });
     </script>
-    <script type="text/javascript">
-        var editor; // use a global for the submit and return data rendering in the examples
- 
-        $(document).ready(function() {
-            editor = new $.fn.dataTable.Editor( {
-                ajax: "../php/staff.php",
-                table: "#example",
-                fields: [ {
-                        label: "First name:",
-                        name: "first_name"
-                    }, {
-                        label: "Last name:",
-                        name: "last_name"
-                    }, {
-                        label: "Position:",
-                        name: "position"
-                    }, {
-                        label: "Office:",
-                        name: "office"
-                    }, {
-                        label: "Extension:",
-                        name: "extn"
-                    }, {
-                        label: "Start date:",
-                        name: "start_date",
-                        type: "datetime"
-                    }, {
-                        label: "Salary:",
-                        name: "salary"
-                    }
-                ]
-            } );
-         
-            $('#example').DataTable( {
-                dom: "Bfrtip",
-                ajax: "../php/staff.php",
-                columns: [
-                    { data: null, render: function ( data, type, row ) {
-                        // Combine the first and last names into a single table field
-                        return data.first_name+' '+data.last_name;
-                    } },
-                    { data: "position" },
-                    { data: "office" },
-                    { data: "extn" },
-                    { data: "start_date" },
-                    { data: "salary", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) }
-                ],
-                select: true,
-                buttons: [
-                    { extend: "create", editor: editor },
-                    { extend: "edit",   editor: editor },
-                    { extend: "remove", editor: editor }
-                ]
-            } );
-        } );
-    </script>
-
     <!-- /DATATABLES -->
 
     <!-- Parsley -->
@@ -618,6 +549,75 @@
     </script>
     <!-- /Parsley -->
 
+    <!-- Script para dar de alta un lugar con ajax--> 
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("#submitStaff").click(function(){
+            var nombre = $("#nombre").val();
+            var apellidoPaterno = $("#apellidoPaterno").val();
+            var apellidoMaterno = $("#apellidoMaterno").val();
+            var genero = $("#genero").val();
+            var fechaNacimiento = String($("#fechaNacimiento").val());
+            var carrera = $("#carrera").val();
+            var universidad = $("#universidad").val();
+            var gaia = $("#gaia").val();
+            var rolDeseado = $("#rolDeseado").val();
+            var pulsera = $("#pulsera").val();
+            var correo = $("#correo").val();
+            var telefonoCel = $("#telefonoCel").val();
+            
+            // Returns successful data submission message when the entered information is stored in database.
+            if(nombre==''|| apellidoPaterno=='' || apellidoMaterno=='' || genero==''|| fechaNacimiento==''|| carrera==''||universidad==''||rolDeseado==''|| correo==''|| telefonoCel==''|| gaia==''|| pulsera=='') {
+                //alert("Favor de llenar todos los campos");
+            }else{
+            // AJAX Code To Submit Form.
+                $.ajax({
+                    url: "../../../CONTROLLER/encuestaStaff.php",
+                    method: 'POST',
+                    data: {nombre:nombre, apellidoPaterno:apellidoPaterno, apellidoMaterno:apellidoMaterno, genero:genero,fechaNacimiento:fechaNacimiento,carrera:carrera,universidad:universidad,gaia:gaia,rolDeseado:rolDeseado, pulsera:pulsera,correo:correo,telefonoCel:telefonoCel},
+                    cache: false,
+                    success: function(result){
+                        if(result=='1'){
+                            $('#mensajeStaff').empty(),
+                            $('#mensajeStaff').show(),
+                            $('#mensajeStaff').removeClass("alert alert-danger")
+                            $('#mensajeStaff').addClass("alert alert-success"),
+                            $('#mensajeStaff').html('<span aria-hidden="true"><i class="fa fa-check"></i></span>Muchas Gracias por llenar la Encuesta'),
+                            $("#staffForm ").trigger("reset"),
+                            $("#contenido").hide();
+                            $("#tablaStaff").load(location.href + " #tablaStaff");
+                        }else{
+                            $('#mensajeStaff').empty(),
+                            $('#mensajeStaff').removeClass("alert alert-success")
+                            $('#mensajeStaff').addClass("alert alert-danger"),
+                            $('#mensajeStaff').show(),
+                            $('#mensajeStaff').html('<span aria-hidden="true"><i class="fa fa-close"></i></span> Error al hacer la encuesta ');
+                        }
+                        //alert(result)
+                    }
+                });
+            }
+            return false;
+        });
+    }); 
+    </script>
+    <script type="text/javascript">
+     $("#staffForm :input").tooltip({
+ 
+        // place tooltip on the right edge
+        position: "center right",
+ 
+        // a little tweaking of the position
+        offset: [-2, 10],
+ 
+        // use the built-in fadeIn/fadeOut effect
+        effect: "fade",
+ 
+        // custom opacity setting
+        opacity: 0.7
+ 
+      });
+    </script>
 
 </body>
 

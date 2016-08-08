@@ -4,7 +4,7 @@
 		$nombre = trim($_POST["nombre"]);
 		$apellidoPaterno = trim($_POST["apellidoPaterno"]);
 		$apellidoMaterno = trim($_POST["apellidoMaterno"]);
-		$genero = trim($_POST["genero"]);
+		$genero = trim($_POST["genero"]); 
 		$fechaNacimiento = trim($_POST["fechaNacimiento"]);
 		$carrera = trim($_POST["carrera"]);
 		$universidad = trim($_POST["universidad"]);
