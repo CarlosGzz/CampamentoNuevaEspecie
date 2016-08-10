@@ -2600,6 +2600,7 @@ input.parsley-error, textarea.parsley-error, select.parsley-error {
   margin: 0;
   cursor: default;
   height: 30px;
+  color: #070707 ;
   border: 1px solid #ADB2B5;
   line-height: 30px;
   border-radius: 0px !important;
@@ -5434,4 +5435,15 @@ ul.notifications {
 .nav-sm .container.body .col-md-3.left_col.menu_fixed{
   position:fixed;
   height:100%;
+}
+
+#cualidades td,th{
+  padding:3px;
+}
+#cualidadMasMenos td{
+  padding:0px;
+  font-size:15px;
+}
+#cualidadMasMenos tr{
+  border-bottom: none;
 }

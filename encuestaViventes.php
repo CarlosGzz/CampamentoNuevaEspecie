@@ -22,12 +22,6 @@
     <!-- Custom styling plus plugins -->
     <link href="VIEW/CSS/custom.css" rel="stylesheet">
     <link href="VIEW/CSS/icheck/flat/green.css" rel="stylesheet" />
-    <!-- Datatables -->
-    <link href="CONTROLLER/JS/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link href="CONTROLLER/JS/datatables/buttons.bootstrap.min.css" rel="stylesheet">
-    <link href="CONTROLLER/JS/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet">
-    <link href="CONTROLLER/JS/datatables/responsive.bootstrap.min.css" rel="stylesheet">
-    <link href="CONTROLLER/JS/datatables/scroller.bootstrap.min.css" rel="stylesheet">
 
     <!-- Select2 -->
     <link href="VIEW/CSS/select/select2.min.css" rel="stylesheet">
@@ -68,9 +62,9 @@
                                 <a href="#step-1">
                                     <span class="step_no">1</span>
                                     <span class="step_descr">
-                                        Step 1
+                                        Paso 1
                                         <br />
-                                        <small>Step 1 description</small>
+                                        <small>Datos Personales</small>
                                     </span>
                                 </a>
                             </li>
@@ -78,8 +72,8 @@
                                 <a href="#step-2">
                                     <span class="step_no">2</span>
                                     <span class="step_descr">
-                                        Step 2<br />
-                                        <small>Step 2 description</small>
+                                        Paso 2 <br />
+                                        <small>Encuesta</small>
                                     </span>
                                 </a>
                             </li>
@@ -87,8 +81,8 @@
                                 <a href="#step-3">
                                     <span class="step_no">3</span>
                                     <span class="step_descr">
-                                        Step 3<br />
-                                        <small>Step 3 description</small>
+                                        Paso 3<br />
+                                        <small>Datos de Familiares</small>
                                     </span>
                                 </a>
                             </li>
@@ -96,13 +90,13 @@
                         <div id="step-1">
                             <h2 class="StepTitle">Datos Personales</h2>
                             <br>
-                            <form id="staffForm" data-parsley-validate class="form-horizontal form-label-left" style="width:100%" >
+                            <form id="datosPersonales" data-parsley-validate class="form-horizontal form-label-left" style="width:100%" >
                                 <div class="form-group">
                                     <label for="nombre" class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name"> 
                                         Nombre<span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="nombre" name="nombre" required="required" class="form-control col-md-7 col-xs-12" maxlength="120">
+                                        <input type="text" id="nombre" name="nombre" required="required" class="form-control col-md-7 col-xs-12" maxlength="120" title="Si tienes más de uno, escríbelos todos">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -139,7 +133,7 @@
                                         Fecha de Nacimiento<span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input id="fechaNacimiento" class="form-control col-md-7 col-xs-12" required="required" type="date" title="Mes/Dia/Año">
+                                        <input id="fechaNacimiento" class="date-picker form-control col-md-7 col-xs-12" required="required" type="date" title="Mes/Dia/Año">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -202,915 +196,951 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group" id="inputStaff" style="display: none;">
+                                <div class="form-group" id="inputStaff">
                                     <label for="staff" class="control-label col-md-4 col-sm-4 col-xs-12">
                                         ¿Quién?<span class="required">*</span>
                                     </label>
-                                    <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <select id="staff" name="staff" class="form-control" required>
+                                    <div class="col-md-5 col-sm-5 col-xs-12">
+                                        <select id="staff" name="staff" class="form-control"  disabled>
                                             <?php require "CONTROLLER/staffDropdown.php";?>
                                             <option value="Otro">Otro</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group" id="inputStaff2" style="display: none;">
+                                <div class="form-group" id="inputStaff2">
                                     <label for="telefonoCel" class="control-label col-md-4 col-sm-4 col-xs-12">
                                         Otro<span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="otroStaff" name="otroStaff" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" id="otroStaff" name="otroStaff" class="form-control col-md-7 col-xs-12" disabled>
                                     </div>
                                 </div>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
                                 <br>
                             </form>
                         </div>
                         <div id="step-2">
-                            <h2 class="StepTitle">Formulario</h2>
-                            <form id="encuestaForm1" data-parsley-validate class="form-horizontal form-label-left" style="width:100%" >
-                                <!-- Cualidades 1-->
-                                <table class="table" border="0" cellpadding="5" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <td </td>
-                                            <td style="width: 16%;">
-                                                <label >1</label>
-                                            </td> 
-                                            <td style="width: 16%;">
-                                                <label >2</label>
-                                            </td> 
-                                            <td style="width: 16%;">
-                                                <label >3</label>
-                                            </td> 
-                                            <td style="width: 16%;">
-                                                <label >4</label>
-                                            </td>
-                                            <td style="width: 16%;">
-                                                <label >5</label>
-                                            </td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr role="radiogroup" aria-label="Reservado" >
-                                            <td>Reservado</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="reservado" value="1" id="reservado" role="radio" data-col="1" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="reservado" value="2" id="reservado" role="radio" data-col="2" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                            <h2 class="StepTitle">Encuesta</h2>
+                            <p>
+                                Enumera del 1 al 5 las cualidades según describan tu personalidad, 1 siendo la que más te describe, 5 siendo la que menos te describe.
+                                <br>
+                                Asigna solamente un número de importancia a cada cualidad por cada grupo.
+                            </p>
+                            <form id="encuestaForma" data-parsley-validate class="form-horizontal form-label-left" style="width:100%" >
+                                <div class="row">
+                                    <!-- Cualidades 1-->
+                                    <div id="cualidadesDiv1" class="col-md-8 col-sm-8 col-xs-12 col-md-offset-2 col-sm-offset-2">
+                                        <h4>Cualidades 1</h4><p>(1 es mas importante y 5 es menos importante)</p>
+                                        <table id="cualidades" class="table" border="0" cellpadding="5" cellspacing="0" style="width=100%;">
+                                            <thead>
+                                                <tr id="cualidadMasMenos">
+                                                    <td></td>
+                                                    <td id="cualidadMasMenos" style="width: 16%;">
+                                                       <label>+</label>
+                                                    </td> 
+                                                    <td style="width: 16%;">
+                                                       
+                                                    </td> 
+                                                    <td style="width: 16%;">
+                                                        
+                                                    </td> 
+                                                    <td style="width: 16%;">
+                                                    
+                                                    </td>
+                                                    <td id="cualidadMasMenos" style="width: 16%;">
+                                                        <label>-</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td </td>
+                                                    <td style="width: 16%;">
+                                                        <label >1</label>
+                                                    </td> 
+                                                    <td style="width: 16%;">
+                                                        <label >2</label>
+                                                    </td> 
+                                                    <td style="width: 16%;">
+                                                        <label >3</label>
+                                                    </td> 
+                                                    <td style="width: 16%;">
+                                                        <label >4</label>
+                                                    </td>
+                                                    <td style="width: 16%;">
+                                                        <label >5</label>
+                                                    </td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr role="radiogroup" aria-label="Reservado" >
+                                                    <td>Reservado</td>
+                                                    <td style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="reservado" value="1" id="reservado" role="radio" data-col="1" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="reservado" value="2" id="reservado" role="radio" data-col="2" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="reservado" value="3" id="reservado" role="radio" data-col="3" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="reservado" value="3" id="reservado" role="radio" data-col="3" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="reservado" value="4" id="reservado" role="radio" data-col="4" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="reservado" value="5" id="reservado" role="radio" data-col="5" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr> 
-                                        <tr role="radiogroup" aria-label="Sabiduria" >
-                                            <td>Sabiduria</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="sabiduria" value="1" id="sabiduria" role="radio" data-col="1" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="sabiduria" value="2" id="sabiduria" role="radio" data-col="2" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="reservado" value="4" id="reservado" role="radio" data-col="4" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="reservado" value="5" id="reservado" role="radio" data-col="5" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr> 
+                                                <tr role="radiogroup" aria-label="Sabiduria" >
+                                                    <td>Sabiduria</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="sabiduria" value="1" id="sabiduria" role="radio" data-col="1" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="sabiduria" value="2" id="sabiduria" role="radio" data-col="2" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="sabiduria" value="3" id="sabiduria" role="radio" data-col="3" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="sabiduria" value="3" id="sabiduria" role="radio" data-col="3" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="sabiduria" value="4" id="sabiduria" role="radio" data-col="4" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="sabiduria" value="5" id="sabiduria" role="radio" data-col="5" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr> 
-                                        <tr role="radiogroup" aria-label="Idealista" >
-                                            <td>Idealista</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="idealista" value="1" id="idealista" role="radio" data-col="1" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="idealista" value="2" id="idealista" role="radio" data-col="2" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="sabiduria" value="4" id="sabiduria" role="radio" data-col="4" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="sabiduria" value="5" id="sabiduria" role="radio" data-col="5" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr> 
+                                                <tr role="radiogroup" aria-label="Idealista" >
+                                                    <td>Idealista</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="idealista" value="1" id="idealista" role="radio" data-col="1" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="idealista" value="2" id="idealista" role="radio" data-col="2" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="idealista" value="3" id="idealista" role="radio" data-col="3" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="idealista" value="3" id="idealista" role="radio" data-col="3" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="idealista" value="4" id="idealista" role="radio" data-col="4" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="idealista" value="5" id="idealista" role="radio" data-col="5" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr> 
-                                        <tr role="radiogroup" aria-label="Explosivo" >
-                                            <td>Explosivo</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="explosivo" value="1" id="explosivo" role="radio" data-col="1" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="explosivo" value="2" id="explosivo" role="radio" data-col="2" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="idealista" value="4" id="idealista" role="radio" data-col="4" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="idealista" value="5" id="idealista" role="radio" data-col="5" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr> 
+                                                <tr role="radiogroup" aria-label="Explosivo" >
+                                                    <td>Explosivo</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="explosivo" value="1" id="explosivo" role="radio" data-col="1" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="explosivo" value="2" id="explosivo" role="radio" data-col="2" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="explosivo" value="3" id="explosivo" role="radio" data-col="3" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="explosivo" value="3" id="explosivo" role="radio" data-col="3" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="explosivo" value="4" id="explosivo" role="radio" data-col="4" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="explosivo" value="5" id="explosivo" role="radio" data-col="5" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr role="radiogroup" aria-label="Optimismo" >
-                                            <td>Optimismo</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="optimismo" value="1" id="optimismo" role="radio" data-col="1" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="optimismo" value="2" id="optimismo" role="radio" data-col="2" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="explosivo" value="4" id="explosivo" role="radio" data-col="4" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="explosivo" value="5" id="explosivo" role="radio" data-col="5" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="radiogroup" aria-label="Optimismo" >
+                                                    <td>Optimismo</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="optimismo" value="1" id="optimismo" role="radio" data-col="1" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="optimismo" value="2" id="optimismo" role="radio" data-col="2" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="optimismo" value="3" id="optimismo" role="radio" data-col="3" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="optimismo" value="3" id="optimismo" role="radio" data-col="3" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="optimismo" value="4" id="optimismo" role="radio" data-col="4" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="optimismo" value="5" id="optimismo" role="radio" data-col="5" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <!-- /Cualidades 1-->
-                                <!-- Cualidades 2-->
-                                <table class="table" border="0" cellpadding="5" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <td </td>
-                                            <td style="width: 16%;">
-                                                <label >1</label>
-                                            </td> 
-                                            <td style="width: 16%;">
-                                                <label >2</label>
-                                            </td> 
-                                            <td style="width: 16%;">
-                                                <label >3</label>
-                                            </td> 
-                                            <td style="width: 16%;">
-                                                <label >4</label>
-                                            </td>
-                                            <td style="width: 16%;">
-                                                <label >5</label>
-                                            </td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr role="radiogroup" aria-label="Prudencia" >
-                                            <td>Prudencia</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="prudencia" value="1" id="prudencia" role="radio" data-col="6" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="prudencia" value="2" id="prudencia" role="radio" data-col="7" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="optimismo" value="4" id="optimismo" role="radio" data-col="4" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="optimismo" value="5" id="optimismo" role="radio" data-col="5" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /Cualidades 1-->
+                                    <!-- Cualidades 2-->
+                                    <div id="cualidadesDiv2" class="col-md-8 col-sm-8 col-xs-12 col-md-offset-2 col-sm-offset-2">
+                                        <h4>Cualidades 2</h4>
+                                        <table id="cualidades" class="table" border="0" cellpadding="5" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <td </td>
+                                                    <td style="width: 16%;">
+                                                        <label >1</label>
+                                                    </td> 
+                                                    <td style="width: 16%;">
+                                                        <label >2</label>
+                                                    </td> 
+                                                    <td style="width: 16%;">
+                                                        <label >3</label>
+                                                    </td> 
+                                                    <td style="width: 16%;">
+                                                        <label >4</label>
+                                                    </td>
+                                                    <td style="width: 16%;">
+                                                        <label >5</label>
+                                                    </td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr role="radiogroup" aria-label="Prudencia" >
+                                                    <td>Prudencia</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="prudencia" value="1" id="prudencia" role="radio" data-col="6" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="prudencia" value="2" id="prudencia" role="radio" data-col="7" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="prudencia" value="3" id="prudencia" role="radio" data-col="8" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="prudencia" value="3" id="prudencia" role="radio" data-col="8" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="prudencia" value="4" id="prudencia" role="radio" data-col="9" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="prudencia" value="5" id="prudencia" role="radio" data-col="10" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr> 
-                                        <tr role="radiogroup" aria-label="Disciplina" >
-                                            <td>Disciplina</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="disciplina" value="1" id="disciplina" role="radio" data-col="6" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="disciplina" value="2" id="disciplina" role="radio" data-col="7" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="prudencia" value="4" id="prudencia" role="radio" data-col="9" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="prudencia" value="5" id="prudencia" role="radio" data-col="10" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr> 
+                                                <tr role="radiogroup" aria-label="Disciplina" >
+                                                    <td>Disciplina</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="disciplina" value="1" id="disciplina" role="radio" data-col="6" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="disciplina" value="2" id="disciplina" role="radio" data-col="7" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="disciplina" value="3" id="disciplina" role="radio" data-col="8" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="disciplina" value="3" id="disciplina" role="radio" data-col="8" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="disciplina" value="4" id="disciplina" role="radio" data-col="9" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="disciplina" value="5" id="disciplina" role="radio" data-col="10" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr> 
-                                        <tr role="radiogroup" aria-label="Pasión" >
-                                            <td>Pasión</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="pasion" value="1" id="pasion" role="radio" data-col="6" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="pasion" value="2" id="pasion" role="radio" data-col="7" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="disciplina" value="4" id="disciplina" role="radio" data-col="9" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="disciplina" value="5" id="disciplina" role="radio" data-col="10" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr> 
+                                                <tr role="radiogroup" aria-label="Pasión" >
+                                                    <td>Pasión</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="pasion" value="1" id="pasion" role="radio" data-col="6" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="pasion" value="2" id="pasion" role="radio" data-col="7" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="pasion" value="3" id="pasion" role="radio" data-col="8" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="pasion" value="3" id="pasion" role="radio" data-col="8" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="pasion" value="4" id="pasion" role="radio" data-col="9" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="pasion" value="5" id="pasion" role="radio" data-col="10" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr> 
-                                        <tr role="radiogroup" aria-label="Hipersensibilidad" >
-                                            <td>Hipersensibilidad</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="hipersensibilidad" value="1" id="hipersensibilidad" role="radio" data-col="6" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="hipersensibilidad" value="2" id="hipersensibilidad" role="radio" data-col="7" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="pasion" value="4" id="pasion" role="radio" data-col="9" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="pasion" value="5" id="pasion" role="radio" data-col="10" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr> 
+                                                <tr role="radiogroup" aria-label="Hipersensibilidad" >
+                                                    <td>Hipersensibilidad</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="hipersensibilidad" value="1" id="hipersensibilidad" role="radio" data-col="6" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="hipersensibilidad" value="2" id="hipersensibilidad" role="radio" data-col="7" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="hipersensibilidad" value="3" id="hipersensibilidad" role="radio" data-col="8" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="hipersensibilidad" value="3" id="hipersensibilidad" role="radio" data-col="8" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="hipersensibilidad" value="4" id="hipersensibilidad" role="radio" data-col="9" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="hipersensibilidad" value="5" id="hipersensibilidad" role="radio" data-col="10" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr role="radiogroup" aria-label="Generosidad" >
-                                            <td>Generosidad</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="generosidad" value="1" id="generosidad" role="radio" data-col="6" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="generosidad" value="2" id="generosidad" role="radio" data-col="7" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="hipersensibilidad" value="4" id="hipersensibilidad" role="radio" data-col="9" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="hipersensibilidad" value="5" id="hipersensibilidad" role="radio" data-col="10" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="radiogroup" aria-label="Generosidad" >
+                                                    <td>Generosidad</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="generosidad" value="1" id="generosidad" role="radio" data-col="6" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="generosidad" value="2" id="generosidad" role="radio" data-col="7" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="generosidad" value="3" id="generosidad" role="radio" data-col="8" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="generosidad" value="3" id="generosidad" role="radio" data-col="8" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="generosidad" value="4" id="generosidad" role="radio" data-col="9" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="generosidad" value="5" id="generosidad" role="radio" data-col="10" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <!-- /Cualidades 2-->
-                                <!-- Cualidades 3-->
-                                <table class="table" border="0" cellpadding="5" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <td </td>
-                                            <td style="width: 16%;">
-                                                <label >1</label>
-                                            </td> 
-                                            <td style="width: 16%;">
-                                                <label >2</label>
-                                            </td> 
-                                            <td style="width: 16%;">
-                                                <label >3</label>
-                                            </td> 
-                                            <td style="width: 16%;">
-                                                <label >4</label>
-                                            </td>
-                                            <td style="width: 16%;">
-                                                <label >5</label>
-                                            </td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr role="radiogroup" aria-label="Prudencia" >
-                                            <td>Handy</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="handy" value="1" id="handy" role="radio" data-col="11" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="handy" value="2" id="handy" role="radio" data-col="12" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="generosidad" value="4" id="generosidad" role="radio" data-col="9" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="generosidad" value="5" id="generosidad" role="radio" data-col="10" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /Cualidades 2-->
+                                    <!-- Cualidades 3-->
+                                    <div id="cualidadesDiv3" class="col-md-8 col-sm-8 col-xs-12 col-md-offset-2 col-sm-offset-2">
+                                        <h4>Cualidades 3</h4>
+                                        <table id="cualidades" class="table" border="0" cellpadding="5" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <td </td>
+                                                    <td style="width: 16%;">
+                                                        <label >1</label>
+                                                    </td> 
+                                                    <td style="width: 16%;">
+                                                        <label >2</label>
+                                                    </td> 
+                                                    <td style="width: 16%;">
+                                                        <label >3</label>
+                                                    </td> 
+                                                    <td style="width: 16%;">
+                                                        <label >4</label>
+                                                    </td>
+                                                    <td style="width: 16%;">
+                                                        <label >5</label>
+                                                    </td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr role="radiogroup" aria-label="Prudencia" >
+                                                    <td>Handy</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="handy" value="1" id="handy" role="radio" data-col="11" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="handy" value="2" id="handy" role="radio" data-col="12" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="handy" value="3" id="handy" role="radio" data-col="13" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="handy" value="3" id="handy" role="radio" data-col="13" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="handy" value="4" id="handy" role="radio" data-col="14" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="handy" value="5" id="handy" role="radio" data-col="15" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr> 
-                                        <tr role="radiogroup" aria-label="Tesón" >
-                                            <td>Tesón</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="" value="1" id="teson" role="radio" data-col="11" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="teson" value="2" id="teson" role="radio" data-col="12" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="handy" value="4" id="handy" role="radio" data-col="14" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="handy" value="5" id="handy" role="radio" data-col="15" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr> 
+                                                <tr role="radiogroup" aria-label="Tesón" >
+                                                    <td>Tesón</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="" value="1" id="teson" role="radio" data-col="11" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="teson" value="2" id="teson" role="radio" data-col="12" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="teson" value="3" id="teson" role="radio" data-col="13" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="teson" value="3" id="teson" role="radio" data-col="13" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="teson" value="4" id="teson" role="radio" data-col="14" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="teson" value="5" id="teson" role="radio" data-col="15" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr> 
-                                        <tr role="radiogroup" aria-label="Elocuente" >
-                                            <td>Elocuente</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="elocuente" value="1" id="elocuente" role="radio" data-col="11" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="elocuente" value="2" id="elocuente" role="radio" data-col="12" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="teson" value="4" id="teson" role="radio" data-col="14" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="teson" value="5" id="teson" role="radio" data-col="15" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr> 
+                                                <tr role="radiogroup" aria-label="Elocuente" >
+                                                    <td>Elocuente</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="elocuente" value="1" id="elocuente" role="radio" data-col="11" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="elocuente" value="2" id="elocuente" role="radio" data-col="12" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="elocuente" value="3" id="elocuente" role="radio" data-col="13" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="elocuente" value="3" id="elocuente" role="radio" data-col="13" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="elocuente" value="4" id="elocuente" role="radio" data-col="14" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="elocuente" value="5" id="elocuente" role="radio" data-col="15" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr> 
-                                        <tr role="radiogroup" aria-label="Aventado" >
-                                            <td>Aventado</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="aventado" value="1" id="aventado" role="radio" data-col="11" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="aventado" value="2" id="aventado" role="radio" data-col="12" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="elocuente" value="4" id="elocuente" role="radio" data-col="14" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="elocuente" value="5" id="elocuente" role="radio" data-col="15" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr> 
+                                                <tr role="radiogroup" aria-label="Aventado" >
+                                                    <td>Aventado</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="aventado" value="1" id="aventado" role="radio" data-col="11" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="aventado" value="2" id="aventado" role="radio" data-col="12" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="aventado" value="3" id="aventado" role="radio" data-col="13" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="aventado" value="3" id="aventado" role="radio" data-col="13" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="aventado" value="4" id="aventado" role="radio" data-col="14" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="aventado" value="5" id="aventado" role="radio" data-col="15" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr> 
-                                        <tr role="radiogroup" aria-label="Empatía" >
-                                            <td>Empatía</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="empatia" value="1" id="empatia" role="radio" data-col="11" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="empatia" value="2" id="empatia" role="radio" data-col="12" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="aventado" value="4" id="aventado" role="radio" data-col="14" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="aventado" value="5" id="aventado" role="radio" data-col="15" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr> 
+                                                <tr role="radiogroup" aria-label="Empatía" >
+                                                    <td>Empatía</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="empatia" value="1" id="empatia" role="radio" data-col="11" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="empatia" value="2" id="empatia" role="radio" data-col="12" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="empatia" value="3" id="empatia" role="radio" data-col="13" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="empatia" value="3" id="empatia" role="radio" data-col="13" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="empatia" value="4" id="empatia" role="radio" data-col="14" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="empatia" value="5" id="empatia" role="radio" data-col="15" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr> 
-                                    </tbody>
-                                </table>
-                                <!-- /Cualidades 3-->
-                                <!-- Cualidades 4-->
-                                <table class="table" border="0" cellpadding="5" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <td </td>
-                                            <td style="width: 16%;">
-                                                <label >1</label>
-                                            </td> 
-                                            <td style="width: 16%;">
-                                                <label >2</label>
-                                            </td> 
-                                            <td style="width: 16%;">
-                                                <label >3</label>
-                                            </td> 
-                                            <td style="width: 16%;">
-                                                <label >4</label>
-                                            </td>
-                                            <td style="width: 16%;">
-                                                <label >5</label>
-                                            </td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr role="radiogroup" aria-label="Misterioso" >
-                                            <td>Misterioso</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="misterioso" value="1" id="misterios" role="radio" data-col="16" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="misterioso" value="2" id="misterioso" role="radio" data-col="17" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="empatia" value="4" id="empatia" role="radio" data-col="14" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="empatia" value="5" id="empatia" role="radio" data-col="15" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr> 
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /Cualidades 3-->
+                                    <!-- Cualidades 4-->
+                                    <div id="cualidadesDiv4" class="col-md-8 col-sm-8 col-xs-12 col-md-offset-2 col-sm-offset-2">
+                                        <h4>Cualidades 4</h4>
+                                        <table id="cualidades" class="table" border="0" cellpadding="5" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <td </td>
+                                                    <td style="width: 16%;">
+                                                        <label >1</label>
+                                                    </td> 
+                                                    <td style="width: 16%;">
+                                                        <label >2</label>
+                                                    </td> 
+                                                    <td style="width: 16%;">
+                                                        <label >3</label>
+                                                    </td> 
+                                                    <td style="width: 16%;">
+                                                        <label >4</label>
+                                                    </td>
+                                                    <td style="width: 16%;">
+                                                        <label >5</label>
+                                                    </td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr role="radiogroup" aria-label="Misterioso" >
+                                                    <td>Misterioso</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="misterioso" value="1" id="misterios" role="radio" data-col="16" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="misterioso" value="2" id="misterioso" role="radio" data-col="17" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="misterioso" value="3" id="misterioso" role="radio" data-col="18" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="misterioso" value="3" id="misterioso" role="radio" data-col="18" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="misterioso" value="4" id="misterioso" role="radio" data-col="19" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="misterioso" value="5" id="misterioso" role="radio" data-col="20" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr role="radiogroup" aria-label="Fortaleza" >
-                                            <td>Fortaleza</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="fortaleza" value="1" id="fortaleza" role="radio" data-col="16" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="fortaleza" value="2" id="fortaleza" role="radio" data-col="17" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="misterioso" value="4" id="misterioso" role="radio" data-col="19" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="misterioso" value="5" id="misterioso" role="radio" data-col="20" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="radiogroup" aria-label="Fortaleza" >
+                                                    <td>Fortaleza</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="fortaleza" value="1" id="fortaleza" role="radio" data-col="16" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="fortaleza" value="2" id="fortaleza" role="radio" data-col="17" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="fortaleza" value="3" id="fortaleza" role="radio" data-col="18" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="fortaleza" value="3" id="fortaleza" role="radio" data-col="18" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="fortaleza" value="4" id="fortaleza" role="radio" data-col="19" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="fortaleza" value="5" id="fortaleza" role="radio" data-col="20" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr role="radiogroup" aria-label="Capacidad de Improvisar" >
-                                            <td>Capacidad de Improvisar</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="improvisar" value="1" id="improvisar" role="radio" data-col="16" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="improvisar" value="2" id="improvisar" role="radio" data-col="17" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="fortaleza" value="4" id="fortaleza" role="radio" data-col="19" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="fortaleza" value="5" id="fortaleza" role="radio" data-col="20" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="radiogroup" aria-label="Capacidad de Improvisar" >
+                                                    <td>Capacidad de Improvisar</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="improvisar" value="1" id="improvisar" role="radio" data-col="16" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="improvisar" value="2" id="improvisar" role="radio" data-col="17" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="improvisar" value="3" id="improvisar" role="radio" data-col="18" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="improvisar" value="3" id="improvisar" role="radio" data-col="18" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="improvisar" value="4" id="improvisar" role="radio" data-col="19" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="improvisar" value="5" id="improvisar" role="radio" data-col="20" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr role="radiogroup" aria-label="Afable (fácil de tratar)" >
-                                            <td>Afable (fácil de tratar)</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="afable" value="1" id="afable" role="radio" data-col="16" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="afable" value="2" id="afable" role="radio" data-col="17" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="improvisar" value="4" id="improvisar" role="radio" data-col="19" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="improvisar" value="5" id="improvisar" role="radio" data-col="20" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="radiogroup" aria-label="Afable (fácil de tratar)" >
+                                                    <td>Afable (fácil de tratar)</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="afable" value="1" id="afable" role="radio" data-col="16" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="afable" value="2" id="afable" role="radio" data-col="17" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="afable" value="3" id="afable" role="radio" data-col="18" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="afable" value="3" id="afable" role="radio" data-col="18" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="afable" value="4" id="afable" role="radio" data-col="19" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="afable" value="5" id="afable" role="radio" data-col="20" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr role="radiogroup" aria-label="Lealtad" >
-                                            <td>Lealtad</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="lealtad" value="1" id="lealtad" role="radio" data-col="16" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="lealtad" value="2" id="lealtad" role="radio" data-col="17" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="afable" value="4" id="afable" role="radio" data-col="19" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="afable" value="5" id="afable" role="radio" data-col="20" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="radiogroup" aria-label="Lealtad" >
+                                                    <td>Lealtad</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="lealtad" value="1" id="lealtad" role="radio" data-col="16" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="lealtad" value="2" id="lealtad" role="radio" data-col="17" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="lealtad" value="3" id="lealtad" role="radio" data-col="18" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="lealtad" value="3" id="lealtad" role="radio" data-col="18" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="lealtad" value="4" id="lealtad" role="radio" data-col="19" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="lealtad" value="5" id="lealtad" role="radio" data-col="20" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr> 
-                                    </tbody>
-                                </table>
-                                <!-- /Cualidades 4-->
-                                <!-- Cualidades 5-->
-                                <table class="table" border="0" cellpadding="5" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <td </td>
-                                            <td style="width: 16%;">
-                                                <label >1</label>
-                                            </td> 
-                                            <td style="width: 16%;">
-                                                <label >2</label>
-                                            </td> 
-                                            <td style="width: 16%;">
-                                                <label >3</label>
-                                            </td> 
-                                            <td style="width: 16%;">
-                                                <label >4</label>
-                                            </td>
-                                            <td style="width: 16%;">
-                                                <label >5</label>
-                                            </td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr role="radiogroup" aria-label="Franco" >
-                                            <td>Franco</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="franco" value="1" id="franco" role="radio" data-col="21" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="franco" value="2" id="franco" role="radio" data-col="22" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="lealtad" value="4" id="lealtad" role="radio" data-col="19" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="lealtad" value="5" id="lealtad" role="radio" data-col="20" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr> 
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /Cualidades 4-->
+                                    <!-- Cualidades 5-->
+                                    <div id="cualidadesDiv5" class="col-md-8 col-sm-8 col-xs-12 col-md-offset-2 col-sm-offset-2">
+                                        <h4>Cualidades 5</h4>
+                                        <table id="cualidades" class="table" border="0" cellpadding="5" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <td </td>
+                                                    <td style="width: 16%;">
+                                                        <label >1</label>
+                                                    </td> 
+                                                    <td style="width: 16%;">
+                                                        <label >2</label>
+                                                    </td> 
+                                                    <td style="width: 16%;">
+                                                        <label >3</label>
+                                                    </td> 
+                                                    <td style="width: 16%;">
+                                                        <label >4</label>
+                                                    </td>
+                                                    <td style="width: 16%;">
+                                                        <label >5</label>
+                                                    </td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr role="radiogroup" aria-label="Franco" >
+                                                    <td>Franco</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="franco" value="1" id="franco" role="radio" data-col="21" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="franco" value="2" id="franco" role="radio" data-col="22" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="franco" value="3" id="franco" role="radio" data-col="23" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="franco" value="3" id="franco" role="radio" data-col="23" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="franco" value="4" id="franco" role="radio" data-col="24" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="franco" value="5" id="franco" role="radio" data-col="25" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr role="radiogroup" aria-label="Sobreprotector" >
-                                            <td>Sobreprotector</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="sobreprotector" value="1" id="sobreprotector" role="radio" data-col="21" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="sobreprotector" value="2" id="sobreprotector" role="radio" data-col="22" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="franco" value="4" id="franco" role="radio" data-col="24" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="franco" value="5" id="franco" role="radio" data-col="25" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="radiogroup" aria-label="Sobreprotector" >
+                                                    <td>Sobreprotector</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="sobreprotector" value="1" id="sobreprotector" role="radio" data-col="21" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="sobreprotector" value="2" id="sobreprotector" role="radio" data-col="22" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="sobreprotector" value="3" id="sobreprotector" role="radio" data-col="23" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="sobreprotector" value="3" id="sobreprotector" role="radio" data-col="23" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="sobreprotector" value="4" id="sobreprotector" role="radio" data-col="24" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="sobreprotector" value="5" id="sobreprotector" role="radio" data-col="25" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr role="radiogroup" aria-label="Creativo" >
-                                            <td>Creativo</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="creativo" value="1" id="creativo" role="radio" data-col="21" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="creativo" value="2" id="creativo" role="radio" data-col="22" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="sobreprotector" value="4" id="sobreprotector" role="radio" data-col="24" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="sobreprotector" value="5" id="sobreprotector" role="radio" data-col="25" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="radiogroup" aria-label="Creativo" >
+                                                    <td>Creativo</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="creativo" value="1" id="creativo" role="radio" data-col="21" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="creativo" value="2" id="creativo" role="radio" data-col="22" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="creativo" value="3" id="creativo" role="radio" data-col="23" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="creativo" value="3" id="creativo" role="radio" data-col="23" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="creativo" value="4" id="creativo" role="radio" data-col="24" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="creativo" value="5" id="creativo" role="radio" data-col="25" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr role="radiogroup" aria-label="Movido" >
-                                            <td>Movido</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="movido" value="1" id="movido" role="radio" data-col="21" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="movido" value="2" id="movido" role="radio" data-col="22" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="creativo" value="4" id="creativo" role="radio" data-col="24" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="creativo" value="5" id="creativo" role="radio" data-col="25" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="radiogroup" aria-label="Movido" >
+                                                    <td>Movido</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="movido" value="1" id="movido" role="radio" data-col="21" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="movido" value="2" id="movido" role="radio" data-col="22" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="movido" value="3" id="movido" role="radio" data-col="23" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="movido" value="3" id="movido" role="radio" data-col="23" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="movido" value="4" id="movido" role="radio" data-col="24" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="movido" value="5" id="movido" role="radio" data-col="25" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr role="radiogroup" aria-label="Deseo de Triunfar" >
-                                            <td>Deseo de Triunfar</td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="triunfar" value="1" id="triunfar" role="radio" data-col="21" aria-label="1" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="triunfar" value="2" id="triunfar" role="radio" data-col="22" aria-label="2" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="movido" value="4" id="movido" role="radio" data-col="24" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="movido" value="5" id="movido" role="radio" data-col="25" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="radiogroup" aria-label="Deseo de Triunfar" >
+                                                    <td>Deseo de Triunfar</td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="triunfar" value="1" id="triunfar" role="radio" data-col="21" aria-label="1" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="triunfar" value="2" id="triunfar" role="radio" data-col="22" aria-label="2" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
 
-                                                <div >
-                                                    <input type="radio" name="triunfar" value="3" id="triunfar" role="radio" data-col="23" aria-label="3" required="" aria-required="true">
-                                                </div>
+                                                        <div >
+                                                            <input type="radio" name="triunfar" value="3" id="triunfar" role="radio" data-col="23" aria-label="3" required="" aria-required="true">
+                                                        </div>
 
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="triunfar" value="4" id="triunfar" role="radio" data-col="24" aria-label="4" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                            <td  style="width: 16%;">
-                                                <div >
-                                                    <input type="radio" name="triunfar" value="5" id="triunfar" role="radio" data-col="25" aria-label="5" required="" aria-required="true">
-                                                </div>
-                                            </td>
-                                        </tr> 
-                                    </tbody>
-                                </table>
-                                <!-- /Cualidades 5-->
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="triunfar" value="4" id="triunfar" role="radio" data-col="24" aria-label="4" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                    <td  style="width: 16%;">
+                                                        <div >
+                                                            <input type="radio" name="triunfar" value="5" id="triunfar" role="radio" data-col="25" aria-label="5" required="" aria-required="true">
+                                                        </div>
+                                                    </td>
+                                                </tr> 
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /Cualidades 5-->
+                                </div>
                                 <div class="form-group">
                                     <label for="actitudAPersonalidad" class="control-label col-md-4 col-sm-4 col-xs-12">
                                         ¿Cuál es la actitud que más se acerca a mi personalidad que se encuentra arriba?<span class="required">*</span>
@@ -1194,7 +1224,7 @@
                         </div>
                         <div id="step-3">
                             <h2 class="StepTitle">Datos Familiares y Amigos</h2>
-                            <form id="encuestaForm1" data-parsley-validate class="form-horizontal form-label-left" style="width:100%" >
+                            <form id="datosFamiliar" data-parsley-validate class="form-horizontal form-label-left" style="width:100%" >
                                 <br>
                                 <h4>Padre</h4>
                                 <div class="form-group">
@@ -1202,7 +1232,7 @@
                                         Nombre del Padre <span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="nombrePadre" name="nombrePadre" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" id="nombrePadre" name="nombrePadre" required="required" class="form-control col-md-7 col-xs-12" title="Nombre Completo">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -1236,7 +1266,7 @@
                                         Nombre de la madre  <span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="nombreMadre" name="nombreMadre" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" id="nombreMadre" name="nombreMadre" required="required" class="form-control col-md-7 col-xs-12" title="Nombre Completo">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -1270,7 +1300,7 @@
                                         Nombre amigo #1  <span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="nombreAmigo1" name="nombreAmigo1" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" id="nombreAmigo1" name="nombreAmigo1" required="required" class="form-control col-md-7 col-xs-12" title="Nombre Completo">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -1304,7 +1334,7 @@
                                         Nombre amigo #2  <span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="nombreAmigo2" name="nombreAmigo2" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" id="nombreAmigo2" name="nombreAmigo2" required="required" class="form-control col-md-7 col-xs-12" title="Nombre Completo">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -1331,8 +1361,48 @@
                                         <input type="email" id="correoAmigo2" name="correoAmigo2" required="required" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
+                                <h4>Amigo 3</h4>
+                                <div class="form-group">
+                                    <label for="nombreAmigo3" class="control-label col-md-4 col-sm-4 col-xs-12">
+                                        Nombre amigo #3  <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" id="nombreAmigo3" name="nombreAmigo3" required="required" class="form-control col-md-7 col-xs-12" title="Nombre Completo">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="telefonoAmigo3" class="control-label col-md-4 col-sm-4 col-xs-12">
+                                        Teléfono de casa amigo #3
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" id="telefonoAmigo3" name="telefonoAmigo3" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="celularAmigo3" class="control-label col-md-4 col-sm-4 col-xs-12">
+                                        Teléfono celular de amigo #3<span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" id="celularAmigo3" name="celularAmigo3" required="required" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="correoAmigo3" class="control-label col-md-4 col-sm-4 col-xs-12">
+                                        Correo electrónico de amigo #2 <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="email" id="correoAmigo3" name="correoAmigo3" required="required" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
                                 <br>
                             </form>
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-6 col-sm-offset-3">
+                                    <button id="submit" type="submit" class="btn btn-success">Enviar</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1344,13 +1414,35 @@
 
     <!-- bootstrap js -->
     <script src="CONTROLLER/JS/bootstrap.min.js"></script>
+    <!-- custom js -->
+    <script src="CONTROLLER/JS/custom.js"></script>
     <!-- bootstrap progress js -->
     <script src="CONTROLLER/JS/progressbar/bootstrap-progressbar.min.js"></script>
     <script src="CONTROLLER/JS/nicescroll/jquery.nicescroll.min.js"></script>
     <!-- icheck -->
     <script src="CONTROLLER/JS/icheck/icheck.min.js"></script>
-    <!-- custom js -->
-    <script src="CONTROLLER/JS/custom.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="CONTROLLER/JS/moment/moment.min.js"></script>
+    <script src="CONTROLLER/JS/datepicker/daterangepicker.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script>
+        var is_explorer = navigator.userAgent.indexOf('MSIE') > -1;
+        var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
+        var is_safari = navigator.userAgent.indexOf("Safari") > -1;
+        $(document).ready(function() {
+            if ( is_firefox || is_safari || is_explorer) {
+                $('#fechaNacimiento').daterangepicker({
+                    singleDatePicker: true,
+                    showDropdowns: true,
+                    calender_style: "picker_4"
+                },function(start, end, label) {
+                    console.log(start.toISOString(), end.toISOString(), label);
+                });
+            }
+        });
+    </script>
+    <!-- /bootstrap-daterangepicker -->
+    
     <!-- Select2 -->
     <script src="CONTROLLER/JS/select/select2.full.js"></script>
     <!-- Select2 -->
@@ -1358,6 +1450,10 @@
       $(document).ready(function() {
         $(".select2_single").select2({
           placeholder: "Selecciona una Cualidad",
+          allowClear: true
+        });
+        $("#staff").select2({
+          placeholder: "Selecciona un Miembro",
           allowClear: true
         });
       });
@@ -1371,12 +1467,12 @@
         $.listen('parsley:field:validate', function() {
           validateFront();
         });
-        $('#staffForm .btn').on('click', function() {
-          $('#staffForm').parsley().validate();
+        $('#siguiente .btn').on('click', function() {
+          $('#datosPersonales').parsley().validate();
           validateFront();
         });
         var validateFront = function() {
-          if (true === $('#staffForm').parsley().isValid()) {
+          if (true === $('#datosPersonales').parsley().isValid()) {
             $('.bs-callout-info').removeClass('hidden');
             $('.bs-callout-warning').addClass('hidden');
           } else {
@@ -1392,60 +1488,60 @@
     </script>
     <!-- /Parsley -->
 
-    <!-- Script para dar de alta un lugar con ajax--> 
+    <!-- Script para dar de alta al viviente con ajax--> 
     <script type="text/javascript">
-    $(document).ready(function(){
-        $("#submitStaff").click(function(){
-            var nombre = $("#nombre").val();
-            var apellidoPaterno = $("#apellidoPaterno").val();
-            var apellidoMaterno = $("#apellidoMaterno").val();
-            var genero = $("#genero").val();
-            var fechaNacimiento = String($("#fechaNacimiento").val());
-            var carrera = $("#carrera").val();
-            var universidad = $("#universidad").val();
-            var gaia = $("#gaia").val();
-            var rolDeseado = $("#rolDeseado").val();
-            var pulsera = $("#pulsera").val();
-            var correo = $("#correo").val();
-            var telefonoCel = $("#telefonoCel").val();
-            
-            // Returns successful data submission message when the entered information is stored in database.
-            if(nombre==''|| apellidoPaterno=='' || apellidoMaterno=='' || genero==''|| fechaNacimiento==''|| carrera==''||universidad==''||rolDeseado==''|| correo==''|| telefonoCel==''|| gaia==''|| pulsera=='') {
-                //alert("Favor de llenar todos los campos");
-            }else{
-            // AJAX Code To Submit Form.
-                $.ajax({
-                    url: "CONTROLLER/encuestaStaff.php",
-                    method: 'POST',
-                    data: {nombre:nombre, apellidoPaterno:apellidoPaterno, apellidoMaterno:apellidoMaterno, genero:genero,fechaNacimiento:fechaNacimiento,carrera:carrera,universidad:universidad,gaia:gaia,rolDeseado:rolDeseado, pulsera:pulsera,correo:correo,telefonoCel:telefonoCel},
-                    cache: false,
-                    success: function(result){
-                        if(result=='1'){
-                            $('#mensajeStaff').empty(),
-                            $('#mensajeStaff').show(),
-                            $('#mensajeStaff').removeClass("alert alert-danger")
-                            $('#mensajeStaff').addClass("alert alert-success"),
-                            $('#mensajeStaff').html('<span aria-hidden="true"><i class="fa fa-check"></i></span>Muchas Gracias por llenar la Encuesta'),
-                            $("#staffForm ").trigger("reset"),
-                            $("#contenido").hide();
-                        }else{
-                            $('#mensajeStaff').empty(),
-                            $('#mensajeStaff').removeClass("alert alert-success")
-                            $('#mensajeStaff').addClass("alert alert-danger"),
-                            $('#mensajeStaff').show(),
-                            $('#mensajeStaff').html('<span aria-hidden="true"><i class="fa fa-close"></i></span> Error al hacer la encuesta ');
+        $(document).ready(function(){
+            $("#submit").click(function(){
+                var nombre = $("#nombre").val();
+                var apellidoPaterno = $("#apellidoPaterno").val();
+                var apellidoMaterno = $("#apellidoMaterno").val();
+                var genero = $("#genero").val();
+                var fechaNacimiento = String($("#fechaNacimiento").val());
+                var carrera = $("#carrera").val();
+                var universidad = $("#universidad").val();
+                var gaia = $("#gaia").val();
+                var rolDeseado = $("#rolDeseado").val();
+                var pulsera = $("#pulsera").val();
+                var correo = $("#correo").val();
+                var telefonoCel = $("#telefonoCel").val();
+                
+                // Returns successful data submission message when the entered information is stored in database.
+                if(nombre==''|| apellidoPaterno=='' || apellidoMaterno=='' || genero==''|| fechaNacimiento==''|| carrera==''||universidad==''||rolDeseado==''|| correo==''|| telefonoCel==''|| gaia==''|| pulsera=='') {
+                    //alert("Favor de llenar todos los campos");
+                }else{
+                // AJAX Code To Submit Form.
+                    $.ajax({
+                        url: "CONTROLLER/encuestaStaff.php",
+                        method: 'POST',
+                        data: {nombre:nombre, apellidoPaterno:apellidoPaterno, apellidoMaterno:apellidoMaterno, genero:genero,fechaNacimiento:fechaNacimiento,carrera:carrera,universidad:universidad,gaia:gaia,rolDeseado:rolDeseado, pulsera:pulsera,correo:correo,telefonoCel:telefonoCel},
+                        cache: false,
+                        success: function(result){
+                            if(result=='1'){
+                                $('#mensajeStaff').empty(),
+                                $('#mensajeStaff').show(),
+                                $('#mensajeStaff').removeClass("alert alert-danger")
+                                $('#mensajeStaff').addClass("alert alert-success"),
+                                $('#mensajeStaff').html('<span aria-hidden="true"><i class="fa fa-check"></i></span>Muchas Gracias por llenar la Encuesta'),
+                                $("#staffForm ").trigger("reset"),
+                                $("#contenido").hide();
+                            }else{
+                                $('#mensajeStaff').empty(),
+                                $('#mensajeStaff').removeClass("alert alert-success")
+                                $('#mensajeStaff').addClass("alert alert-danger"),
+                                $('#mensajeStaff').show(),
+                                $('#mensajeStaff').html('<span aria-hidden="true"><i class="fa fa-close"></i></span> Error al hacer la encuesta ');
+                            }
+                            //alert(result)
                         }
-                        //alert(result)
-                    }
-                });
-            }
-            return false;
-        });
-    }); 
+                    });
+                }
+                return false;
+            });
+        }); 
     </script>
-
+    <!--Tooltip-->
     <script type="text/javascript">
-     $("#staffForm :input").tooltip({
+        $("#datosPersonales :input").tooltip({
  
         // place tooltip on the right edge
         position: "center right",
@@ -1459,8 +1555,15 @@
         // custom opacity setting
         opacity: 0.7
  
-      });
+        });
+
+        $("#cualidades1").attr('title', "Asigna un número de importancia a cada cualidad, no repitas números dentro de esta categoría. 1 siendo con la cualidad que más te identificas, 5 con la que menos.");
+        $("#cualidades2").attr('title', "Asigna un número de importancia a cada cualidad, no repitas números dentro de esta categoría. 1 siendo con la cualidad que más te identificas, 5 con la que menos.");
+        $("#cualidades3").attr('title', "Asigna un número de importancia a cada cualidad, no repitas números dentro de esta categoría. 1 siendo con la cualidad que más te identificas, 5 con la que menos.");
+        $("#cualidades4").attr('title', "Asigna un número de importancia a cada cualidad, no repitas números dentro de esta categoría. 1 siendo con la cualidad que más te identificas, 5 con la que menos.");
+        $("#cualidades5").attr('title', "Asigna un número de importancia a cada cualidad, no repitas números dentro de esta categoría. 1 siendo con la cualidad que más te identificas, 5 con la que menos.");
     </script>
+    <!--/Tooltip-->
     <!-- jQuery Smart Wizard -->
     <script src="CONTROLLER/JS/wizard/jquery.smartWizard.js"></script>
     <!-- jQuery Smart Wizard -->
@@ -1469,12 +1572,14 @@
         $('#wizard').smartWizard();
 
         $('#wizard_verticle').smartWizard({
-          transitionEffect: 'slide'
+            transitionEffect: 'slide',
+            noForwardJumping:true
         });
 
         $('.buttonNext').addClass('btn btn-success');
+        $('.buttonNext').attr('id', 'siguiente');
         $('.buttonPrevious').addClass('btn btn-primary');
-        $('.buttonFinish').addClass('btn btn-default');
+        $('.buttonPrevious').attr('id', 'siguiente');
       });
     </script>
     <!-- /jQuery Smart Wizard -->
@@ -1492,25 +1597,25 @@
         });
     </script>
     <!-- /Validacion de Tablas Radio-->
-
+    <!-- Si es miembro de Staff-->
     <script>
         $("#medioCampamento").on('change',function(){
             if($("#medioCampamento").val() == "Miembro de Staff"){
-                $("#inputStaff").show();
+                $("#staff").removeAttr('disabled');
             }else{
-                $("#inputStaff").hide();
+                $("#staff").attr('disabled', 'disabled');
+                $("#otroStaff").attr('disabled', 'disabled');
             }
         });
-        $("#inputStaff").on('change',function(){
+        $("#staff").on('change',function(){
             if($("#staff").val() == "Otro"){
-                $("#inputStaff2").show();
+                $("#otroStaff").removeAttr('disabled');
             }else{
-                $("#inputStaff2").hide();
+                $("#otroStaff").attr('disabled', 'disabled');
             }
         });
     </script>
-  </body>
-
+    <!-- /Si es miembro de Staff-->
 
 </body>
 </html>
