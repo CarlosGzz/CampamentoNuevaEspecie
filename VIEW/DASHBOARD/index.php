@@ -775,7 +775,7 @@
                     color: "#070D0D"
                 },
                 {
-                    value: <?php? echo ($totalStaff['totalStaff']-$viejosStaff['viejosStaff']);?>,
+                    value: <?php echo $totalStaff['totalStaff']-$viejosStaff['viejosStaff'];?>,
                     color: "#2196f3"
                 }
              ];
