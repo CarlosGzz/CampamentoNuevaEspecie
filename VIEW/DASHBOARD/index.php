@@ -281,10 +281,10 @@
                                         <div class="icon2" ><i class="fa fa-money"></i></div>
                                         <div class="count" style="font-size: 20px;">
                                         <?php
-                                            require "../../MODEL/connect.php";
-                                            $data = $db->query("SELECT COUNT(idViviente) as totalPagados FROM viviente WHERE pagado>0");
-                                            $totalPagados=mysqli_fetch_assoc($data);
-                                            echo $totalPagados['totalPagados'];
+                                            
+                                            $data = $db->query("SELECT COUNT(s.idStaff) as totalStaffPagados FROM staff as s INNER JOIN staffCampamento as c ON s.idStaff = c.idStaff WHERE c.pagado>0");
+                                            $totalStaffPagados=mysqli_fetch_assoc($data);
+                                            echo $totalStaffPagados['totalStaffPagados'];
                                         ?>
                                         </div>
                                         <h3 style="font-size: 15px;">Pagados</h3>
@@ -298,9 +298,9 @@
                                         <div class="icon2"><i class="fa fa-file-text" style="font-size: 40px;"></i></div>
                                         <div class="count" style="font-size: 20px;">
                                         <?php
-                                            $data = $db->query("SELECT COUNT(idViviente) as totalEncuestados FROM viviente WHERE gaia>0");
-                                            $totalEncuestados=mysqli_fetch_assoc($data);
-                                            echo $totalEncuestados['totalEncuestados'];
+                                            $data = $db->query("SELECT COUNT(s.idStaff) as totalStaffAsistentes FROM staff as s INNER JOIN staffCampamento as c ON s.idStaff = c.idStaff ");
+                                            $totalStaffAsistentes=mysqli_fetch_assoc($data);
+                                            echo $totalStaffAsistentes['totalStaffAsistentes'];
                                         ?>
                                         </div>
                                         <h3 style="font-size: 15px;">Asistentes</h3>
@@ -316,9 +316,9 @@
                                         <div class="count" style="font-size: 20px;">
 
                                         <?php
-                                            $data = $db->query("SELECT COUNT(idViviente) as totalVivientes FROM viviente");
-                                            $totalVivientes=mysqli_fetch_assoc($data);
-                                            echo $totalVivientes['totalVivientes'];
+                                            $data = $db->query("SELECT COUNT(idStaff) as totalStaff FROM staff");
+                                            $totalStaff=mysqli_fetch_assoc($data);
+                                            echo $totalStaff['totalStaff'];
                                         ?>
 
                                         </div>
@@ -337,8 +337,9 @@
                                         </div>
                                         <div class="count" style="font-size: 20px;">
                                         <?php
-                                            $string = " ".$totalVivientes['totalVivientes']."/".$totalVivientes['totalVivientes']." ";
-                                            echo $string;
+                                            $data = $db->query("SELECT COUNT(idStaff) as viejosStaff FROM staff WHERE pulsera ='rojo' OR pulsera ='plateada'");
+                                            $viejosStaff=mysqli_fetch_assoc($data);
+                                            echo $viejosStaff['viejosStaff']."/".$totalStaff['totalStaff']-$viejosStaff['viejosStaff'];
                                         ?>
                                         </div>
                                         <h3 style="font-size: 15px;">Viejos/Nuevos</h3>
@@ -380,49 +381,62 @@
                         $contadorHombres = 0;
                         $contadorMujeres = 0;
                         $total = 0;
-
-                        while($object = mysqli_fetch_object($data)){
-                            $vivientes[]=$object;
-                        }
-                        foreach ($vivientes as $viviente) {
-                            if(!empty($viviente->fechaNacimiento) || $viviente->fechaNacimiento != null){
-                                $birthDate = $viviente->fechaNacimiento;
-                                $birthDate = explode("-", $birthDate);
-                                $age = (date("md", date("U", mktime(0, 0, 0, $birthDate[2], $birthDate[1], $birthDate[0]))) > date("md")? ((date("Y") - $birthDate[0]) - 1): (date("Y") - $birthDate[0]));
-                            }else{
-                                $age = 0;  
+                        if(!empty($vivientes)){
+                            while($object = mysqli_fetch_object($data)){
+                                $vivientes[]=$object;
                             }
-                            if($age < 18){
-                                if($age==0){
-                                    $contadorNoFecha++;
+                            foreach ($vivientes as $viviente) {
+                                if(!empty($viviente->fechaNacimiento) || $viviente->fechaNacimiento != null){
+                                    $birthDate = $viviente->fechaNacimiento;
+                                    $birthDate = explode("-", $birthDate);
+                                    $age = (date("md", date("U", mktime(0, 0, 0, $birthDate[2], $birthDate[1], $birthDate[0]))) > date("md")? ((date("Y") - $birthDate[0]) - 1): (date("Y") - $birthDate[0]));
                                 }else{
-                                    $contadorMenores++;
+                                    $age = 0;  
+                                }
+                                if($age < 18){
+                                    if($age==0){
+                                        $contadorNoFecha++;
+                                    }else{
+                                        $contadorMenores++;
+                                    }
+
+                                }
+                                if($age == 18 || $age == 19){
+                                    $contadorIntervalo2++;
+                                }
+                                if($age == 20 || $age == 21){
+                                    $contadorIntervalo3++;
+                                }
+                                if($age == 22 || $age == 23){
+                                    $contadorIntervalo4++;
+                                }
+                                if($age == 24 || $age == 25){
+                                    $contadorIntervalo5++;
+                                }
+                                if($age > 25){
+                                    $contadorMayores++;
                                 }
 
+                                if($viviente->sexo == "M"){
+                                    $contadorHombres++;
+                                }
+                                if($viviente->sexo == "F"){
+                                    $contadorMujeres++;
+                                }
+                                $total++;
                             }
-                            if($age == 18 || $age == 19){
-                                $contadorIntervalo2++;
-                            }
-                            if($age == 20 || $age == 21){
-                                $contadorIntervalo3++;
-                            }
-                            if($age == 22 || $age == 23){
-                                $contadorIntervalo4++;
-                            }
-                            if($age == 24 || $age == 25){
-                                $contadorIntervalo5++;
-                            }
-                            if($age > 25){
-                                $contadorMayores++;
-                            }
+                        }else{
+                            $contadorMenores = 1;
+                            $contadorIntervalo2 = 1;
+                            $contadorIntervalo3 = 1;
+                            $contadorIntervalo4 = 1;
+                            $contadorIntervalo5 = 1;
+                            $contadorNoFecha = 1;
+                            $contadorMayores = 1;
+                            $contadorHombres = 1;
+                            $contadorMujeres = 1;
+                            $total = 1;
 
-                            if($viviente->sexo == "M"){
-                                $contadorHombres++;
-                            }
-                            if($viviente->sexo == "F"){
-                                $contadorMujeres++;
-                            }
-                            $total++;
                         }
                         $db->close();
                     ?>
@@ -757,11 +771,11 @@
 
             var viejosnuevosPieData = [
                 {
-                    value: 5,
+                    value: <?php echo $viejosStaff['viejosStaff']?>,
                     color: "#070D0D"
                 },
                 {
-                    value: 5,
+                    value: <?php? echo ($totalStaff['totalStaff']-$viejosStaff['viejosStaff']);?>,
                     color: "#2196f3"
                 }
              ];
