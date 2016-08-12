@@ -217,7 +217,7 @@
                                     <div class="icon"><i class="fa fa-file-text"></i></div>
                                     <div class="count">
                                     <?php
-                                        $data = $db->query("SELECT COUNT(idViviente) as totalEncuestados FROM viviente WHERE gaia>0");
+                                        $data = $db->query("SELECT COUNT(v.idViviente) as totalEncuestados FROM viviente as v INNER JOIN encuesta as e ON v.idViviente=e.idViviente");
                                         $totalEncuestados=mysqli_fetch_assoc($data);
                                         echo $totalEncuestados['totalEncuestados'];
                                     ?>
@@ -381,10 +381,10 @@
                         $contadorHombres = 0;
                         $contadorMujeres = 0;
                         $total = 0;
+                        while($object = mysqli_fetch_object($data)){
+                            $vivientes[]=$object;
+                        }
                         if(!empty($vivientes)){
-                            while($object = mysqli_fetch_object($data)){
-                                $vivientes[]=$object;
-                            }
                             foreach ($vivientes as $viviente) {
                                 if(!empty($viviente->fechaNacimiento) || $viviente->fechaNacimiento != null){
                                     $birthDate = $viviente->fechaNacimiento;
@@ -426,7 +426,7 @@
                                 $total++;
                             }
                         }else{
-                            $contadorMenores = 1;
+                            $contadorMenores = 0;
                             $contadorIntervalo2 = 1;
                             $contadorIntervalo3 = 1;
                             $contadorIntervalo4 = 1;
