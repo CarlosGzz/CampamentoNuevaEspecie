@@ -90,27 +90,41 @@
                                         </li>
                                         <li><a href="VIVIENTES/PALANCAS/index.php">Palancas</a>
                                         </li>
+                                        <li><a href="VIVIENTES/ENCUESTA/index.php">Encuesta</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-star"></i>Staff <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="STAFF/index.php">Staff</a>
+                                        <li><a href="STAFF/index.php">Miembros</a>
                                         </li>
-                                        <li><a href="STAFF/pagosStaff.php">Pagos</a>
+                                        <li><a href="STAFF/STAFFASISTENTES/index.php">Campamento Actual</a>
+                                        </li>
+                                        <li><a href="STAFF/ASISTENCIAS/index.php">Asistencias</a>
+                                        </li>
+                                        <li><a href="STAFF/PAGOSTAFF/index.php">Pagos</a>
+                                        </li>
+                                        <li><a href="STAFF/VEHICULOSTAFF/index.php">Vehiculos</a>
+                                        </li>
+                                        <li><a href="STAFF/HISTORIAL/index.php">Historial</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-bank"></i>Administrativo <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="ADMINISTRATIVO/index.php">Ingresos/Egresos</a>
+                                        <li><a href="ADMINISTRATIVO/INGRESOSEGRESOS/index.php">Ingresos/Egresos</a>
                                         </li>
-                                        <li><a href="ADMINISTRATIVO/fotos.php">Gastos Fijos</a>
+                                        <li><a href="ADMINISTRATIVO/GASTOSFIJOS/index.php">Gastos Fijos</a>
                                         </li>
-                                        <li><a href="ADMINISTRATIVO/fotos.php">Cocina</a>
+                                        <li><a href="ADMINISTRATIVO/OPERATIVO/index.php">Operativo</a>
                                         </li>
-                                        <li><a href="ADMINISTRATIVO/fotos.php">Inventario Back</a>
+                                        <li><a href="ADMINISTRATIVO/COCINA/index.php">Cocina</a>
                                         </li>
-                                        <li><a href="ADMINISTRATIVO/fotos.php">Proveedores</a>
+                                        <li><a href="ADMINISTRATIVO/INVENTARIOBACK/index.php">Inventario Back</a>
+                                        </li>
+                                        <li><a href="ADMINISTRATIVO/PARAMEDICO/index.php">Paramedico</a>
+                                        </li>
+                                        <li><a href="ADMINISTRATIVO/PROVEEDORES/index.php">Proveedores</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -272,7 +286,7 @@
                                 </div>
                             </div>
                         </div>
-                    <!--Fast Insights Staff-->
+                        <!--Fast Insights Staff-->
                         <div class="row top_tiles" style="margin: 10px 0;">
                             <div class="row top_tiles">
                                 <!--Staff Pagados-->
@@ -315,11 +329,11 @@
 
                                         <div class="count" style="font-size: 20px;">
 
-                                        <?php
-                                            $data = $db->query("SELECT COUNT(idStaff) as totalStaff FROM staff");
-                                            $totalStaff=mysqli_fetch_assoc($data);
-                                            echo $totalStaff['totalStaff'];
-                                        ?>
+                                            <?php
+                                                $data = $db->query("SELECT COUNT(idStaff) as totalStaff FROM staff");
+                                                $totalStaff=mysqli_fetch_assoc($data);
+                                                echo $totalStaff['totalStaff'];
+                                            ?>
 
                                         </div>
                                         <h3 style="font-size: 15px;">Total</h3>

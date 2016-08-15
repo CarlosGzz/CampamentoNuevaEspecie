@@ -16,33 +16,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Pagina de Vivientes de Dashboard Campamento Nueva Especie">
     <meta name="author" content="Carlos Gonzalez">
-    <link rel="icon" href="../../IMG/lxmlogo.png">
+    <link rel="icon" href="../../../IMG/lxmlogo.png">
 
     <title>Vivientes de Campamento Nueva Especie</title>
 
     <!-- Bootstrap core CSS -->
 
-    <link href="../../CSS/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../CSS/bootstrap.min.css" rel="stylesheet">
 
-    <link href="../../FONTS/css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../CSS/animate.min.css" rel="stylesheet">
+    <link href="../../../FONTS/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../../CSS/animate.min.css" rel="stylesheet">
 
     <!-- Custom styling plus plugins -->
-    <link href="../../CSS/custom.css" rel="stylesheet">
-    <link href="../../CSS/icheck/flat/green.css" rel="stylesheet" />
+    <link href="../../../CSS/custom.css" rel="stylesheet">
+    <link href="../../../CSS/icheck/flat/green.css" rel="stylesheet" />
     <!-- Datatables -->
-    <link href="../../../CONTROLLER/JS/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link href="../../../CONTROLLER/JS/datatables/buttons.bootstrap.min.css" rel="stylesheet">
-    <link href="../../../CONTROLLER/JS/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet">
-    <link href="../../../CONTROLLER/JS/datatables/responsive.bootstrap.min.css" rel="stylesheet">
-    <link href="../../../CONTROLLER/JS/datatables/scroller.bootstrap.min.css" rel="stylesheet">
+    <link href="../../../../CONTROLLER/JS/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="../../../../CONTROLLER/JS/datatables/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="../../../../CONTROLLER/JS/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="../../../../CONTROLLER/JS/datatables/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="../../../../CONTROLLER/JS/datatables/scroller.bootstrap.min.css" rel="stylesheet">
 
     <!-- Select2 -->
-    <link href="../../CSS/select/select2.min.css" rel="stylesheet">
+    <link href="../../../CSS/select/select2.min.css" rel="stylesheet">
     <!-- Switchery -->
-    <link href="../../CSS/switchery/switchery.min.css" rel="stylesheet">
+    <link href="../../../CSS/switchery/switchery.min.css" rel="stylesheet">
 
-    <script src="../../../CONTROLLER/JS/jquery.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/jquery.min.js"></script>
 
 </head>
 
@@ -56,7 +56,7 @@
 
                     <!--Titulo del app-->
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.php" class="site_title"><img id="mainIcon" style="width:30px;height:30px" src="../../IMG/lxmlogo.png" alt="Logo Latiendo Por Mexico">
+                        <a href="index.php" class="site_title"><img id="mainIcon" style="width:30px;height:30px" src="../../../IMG/lxmlogo.png" alt="Logo Latiendo Por Mexico">
                             <span>Nueva Especie</span>
                         </a>
                     </div>
@@ -66,7 +66,7 @@
                     <!-- menu prile quick info -->
                     <div class="profile">
                         <div class="profile_pic">
-                            <img src="../../IMG/profile<?php echo $_SESSION['usuario'];?>.jpg" alt="..." class="img-circle profile_img">
+                            <img src="../../../IMG/profile<?php echo $_SESSION['usuario'];?>.jpg" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
                             <span>Hola,</span>
@@ -85,51 +85,55 @@
                         <div class="menu_section">
                             <h3></h3>
                             <ul class="nav side-menu">
-                                <li><a href="../"><i class="fa fa-bar-chart"></i>Dashboard</a>
+                                <li>
+                                    <a href="../../">
+                                        <i class="fa fa-bar-chart"></i>
+                                        Dashboard
+                                    </a>
                                 </li>
-                                <li class="active" ><a><i class="fa fa-users"></i>Vivientes <span class="fa fa-chevron-down"></span></a>
+                                <li class="active"><a><i class="fa fa-users"></i>Vivientes <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li class="active" ><a href="#">Vivientes</a>
+                                        <li><a href="../../VIVIENTES/index.php">Vivientes</a>
                                         </li>
-                                        <li><a href="FAMILIARES/index.php">Familiares</a>
+                                        <li><a href="../FAMILIARES/index.php">Familiares</a>
                                         </li>
-                                        <li><a href="PALANCAS/index.php">Palancas</a>
+                                        <li><a href="#">Palancas</a>
                                         </li>
-                                        <li><a href="ENCUESTA/index.php">Encuesta</a>
+                                        <li><a href="../ENCUESTA/index.php">Encuesta</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-star"></i>Staff <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="../STAFF/index.php">Miembros</a>
+                                        <li><a href="../../STAFF/index.php">Miembros</a>
                                         </li>
-                                        <li><a href="../STAFF/STAFFASISTENTES/index.php">Campamento Actual</a>
+                                        <li><a href="../../STAFF/STAFFASISTENTES/index.php">Campamento Actual</a>
                                         </li>
-                                        <li><a href="../STAFF/ASISTENCIAS/index.php">Asistencias</a>
+                                        <li><a href="../../STAFF/ASISTENCIAS/index.php">Asistencias</a>
                                         </li>
-                                        <li><a href="../STAFF/PAGOSTAFF/index.php">Pagos</a>
+                                        <li><a href="../../STAFF/PAGOSTAFF/index.php">Pagos</a>
                                         </li>
-                                        <li><a href="../STAFF/VEHICULOSTAFF/index.php">Vehiculos</a>
+                                        <li><a href="../../STAFF/VEHICULOSTAFF/index.php">Vehiculos</a>
                                         </li>
-                                        <li><a href="../STAFF/HISTORIAL/index.php">Historial</a>
+                                        <li><a href="../../STAFF/HISTORIAL/index.php">Historial</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-bank"></i>Administrativo <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="../ADMINISTRATIVO/INGRESOSEGRESOS/index.php">Ingresos/Egresos</a>
+                                        <li><a href="../../ADMINISTRATIVO/INGRESOSEGRESOS/index.php">Ingresos/Egresos</a>
                                         </li>
-                                        <li><a href="../ADMINISTRATIVO/GASTOSFIJOS/index.php">Gastos Fijos</a>
+                                        <li><a href="../../ADMINISTRATIVO/GASTOSFIJOS/index.php">Gastos Fijos</a>
                                         </li>
-                                        <li><a href="../ADMINISTRATIVO/OPERATIVO/index.php">Operativo</a>
+                                        <li><a href="../../ADMINISTRATIVO/OPERATIVO/index.php">Operativo</a>
                                         </li>
-                                        <li><a href="../ADMINISTRATIVO/COCINA/index.php">Cocina</a>
+                                        <li><a href="../../ADMINISTRATIVO/COCINA/index.php">Cocina</a>
                                         </li>
-                                        <li><a href="../ADMINISTRATIVO/INVENTARIOBACK/index.php">Inventario Back</a>
+                                        <li><a href="../../ADMINISTRATIVO/INVENTARIOBACK/index.php">Inventario Back</a>
                                         </li>
-                                        <li><a href="../ADMINISTRATIVO/PARAMEDICO/index.php">Paramedico</a>
+                                        <li><a href="../../ADMINISTRATIVO/PARAMEDICO/index.php">Paramedico</a>
                                         </li>
-                                        <li><a href="../ADMINISTRATIVO/PROVEEDORES/index.php">Proveedores</a>
+                                        <li><a href="../../ADMINISTRATIVO/PROVEEDORES/index.php">Proveedores</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -162,7 +166,7 @@
                         <a data-toggle="tooltip" data-placement="top" title="Lock" style="color: #6A6D6D;">
                             <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
                         </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Logout" style="color: #6A6D6D;" href="../../../">
+                        <a data-toggle="tooltip" data-placement="top" title="Logout" style="color: #6A6D6D;" href="../../../../">
                             <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                         </a>
                     </div>
@@ -181,13 +185,13 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="../../IMG/profile<?php echo $_SESSION['usuario'];?>.jpg" alt=""><?php echo $_SESSION['nombre'];?>
+                                    <img src="../../../IMG/profile<?php echo $_SESSION['usuario'];?>.jpg" alt=""><?php echo $_SESSION['nombre'];?>
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
 
                                 <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
                                     <li>
-                                        <a href="../../../"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                        <a href="../../../../"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                                     </li>
                                 </ul>
                             </li>
@@ -205,7 +209,7 @@
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3> Vivientes <small>informacion de Vivientes y alta</small></h3>
+                            <h3> Palancas <small> palancas de Vivientes</small></h3>
                         </div>
                     </div>
                     <!-- Table -->
@@ -214,7 +218,7 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Tabla de Vivientes <small></small></h2>
+                                    <h2>Table de palancas <small></small></h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
@@ -241,14 +245,54 @@
                                                 <th>Carta Responsabilidad</th>
                                                 <th>Carta Seguro</th>
                                                 <th>Observaciones</th>
-                                                <th>Restricciones Alimentarias</th>
-                                                <th>Alergias</th>
-                                                <th>Medio</th>
-                                                <th>Staff</th>
                                             </tr>
                                         </thead>
                                         <?php
-                                            require "../../../CONTROLLER/vivientesTabla.php";
+                                            require "../../../../MODEL/connect.php";
+                                            $data = $db->query("SELECT * FROM viviente ORDER BY idViviente");
+                                            $vivientes = array();
+                                            while($object = mysqli_fetch_object($data)){
+                                                $vivientes[]=$object;
+                                            }
+                                            $tableString = "<tbody>";
+                                            foreach ($vivientes as $viviente) {
+                                                $tableString.= "<tr>";
+                                                $tableString.= "<td>".$viviente->sexo."</td>";
+                                                $tableString.= "<td>".$viviente->nombre."</td>";
+                                                $tableString.= "<td>".$viviente->apellidoPaterno." ".$viviente->apellidoMaterno."</td>";
+                                                $tableString.= "<td>";
+                                                if(!empty($viviente->fechaNacimiento) || $viviente->fechaNacimiento != null){
+                                                    $birthDate = $viviente->fechaNacimiento;
+                                                    $birthDate = explode("-", $birthDate);
+                                                    $age = (date("md", date("U", mktime(0, 0, 0, $birthDate[2], $birthDate[1], $birthDate[0]))) > date("md")? ((date("Y") - $birthDate[0]) - 1): (date("Y") - $birthDate[0]));
+                                                }else{
+                                                    $age = 0;  
+                                                }
+                                                $tableString.= $age."</td>";
+                                                $tableString.= "<td>".$viviente->telefonoCasa."</td>";
+                                                $tableString.= "<td>".$viviente->telefonoCel."</td>";
+                                                $tableString.= "<td>".$viviente->correo."</td>";
+                                                $tableString.= "<td>".$viviente->gaia."</td>";
+                                                $tableString.= "<td>".$viviente->pagado."</td>";
+                                                $tableString.= "<td>";
+                                                if($viviente->cartaSeguro == 1){
+                                                    $tableString.= "firmada";
+                                                }else{
+                                                    $tableString.= "no firmada";
+                                                }
+                                                $tableString.= "</td>";
+                                                $tableString.= "<td>";
+                                                if($viviente->cartaDeslinde == 1){
+                                                    $tableString.= "firmada";
+                                                }else{
+                                                    $tableString.= "no firmada";
+                                                }
+                                                $tableString.= "</td>";
+                                                $tableString.= "<td>".$viviente->observaciones."</td>";
+                                                $tableString.= "</tr>";
+                                            }
+                                            $tableString.= "</tbody>";
+                                            echo $tableString;
                                         ?>
                                     </table>
                                 </div>
@@ -377,26 +421,26 @@
         <div id="notif-group" class="tabbed_notifications"></div>
     </div>
 
-    <script src="../../../CONTROLLER/JS/bootstrap.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/bootstrap.min.js"></script>
 
     <!-- chart js -->
-    <script src="../../../CONTROLLER/JS/chartjs/chart.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/chartjs/chart.min.js"></script>
     <!-- bootstrap progress js -->
-    <script src="../../../CONTROLLER/JS/progressbar/bootstrap-progressbar.min.js"></script>
-    <script src="../../../CONTROLLER/JS/nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/nicescroll/jquery.nicescroll.min.js"></script>
     <!-- icheck -->
-    <script src="../../../CONTROLLER/JS/icheck/icheck.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/icheck/icheck.min.js"></script>
     <!-- gauge js -->
-    <script type="text/javascript" src="../../../CONTROLLER/JS/gauge/gauge.min.js"></script>
+    <script type="text/javascript" src="../../../../CONTROLLER/JS/gauge/gauge.min.js"></script>
     <!-- daterangepicker -->
-    <script type="text/javascript" src="../../../CONTROLLER/JS/moment/moment.min2.js"></script>
-    <script type="text/javascript" src="../../../CONTROLLER/JS/datepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="../../../../CONTROLLER/JS/moment/moment.min2.js"></script>
+    <script type="text/javascript" src="../../../../CONTROLLER/JS/datepicker/daterangepicker.js"></script>
     <!-- Dropzone.js -->
-    <script src="../../../CONTROLLER/JS/dropzone/dropzone.js"></script>
+    <script src="../../../../CONTROLLER/JS/dropzone/dropzone.js"></script>
 
 
 
-    <script src="../../../CONTROLLER/JS/custom.js"></script>
+    <script src="../../../../CONTROLLER/JS/custom.js"></script>
 
 
     <!-- Script para hacer mas grande el icono --> 
@@ -443,21 +487,21 @@
     </script>
 
     <!-- DATATABLES -->
-    <script src="../../../CONTROLLER/JS/datatables/jquery.dataTables.min.js"></script>
-    <script src="../../../CONTROLLER/JS/datatables/dataTables.bootstrap.js"></script>*
-    <script src="../../../CONTROLLER/JS/datatables/dataTables.buttons.min.js"></script>
-    <script src="../../../CONTROLLER/JS/datatables/buttons.bootstrap.min.js"></script>
-    <script src="../../../CONTROLLER/JS/datatables/buttons.flash.min.js"></script>*
-    <script src="../../../CONTROLLER/JS/datatables/buttons.html5.min.js"></script>
-    <script src="../../../CONTROLLER/JS/datatables/buttons.print.min.js"></script>
-    <script src="../../../CONTROLLER/JS/datatables/dataTables.fixedHeader.min.js"></script>
-    <script src="../../../CONTROLLER/JS/datatables/dataTables.keyTable.min.js"></script>
-    <script src="../../../CONTROLLER/JS/datatables/dataTables.responsive.min.js"></script>
-    <script src="../../../CONTROLLER/JS/datatables/responsive.bootstrap.min.js"></script>*
-    <script src="../../../CONTROLLER/JS/datatables/datatables.scroller.min.js"></script>
-    <script src="../../../CONTROLLER/JS/datatables/jszip.min.js"></script>
-    <script src="../../../CONTROLLER/JS/datatables/pdfmake.min.js"></script>
-    <script src="../../../CONTROLLER/JS/datatables/vfs_fonts.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/dataTables.bootstrap.js"></script>*
+    <script src="../../../../CONTROLLER/JS/datatables/dataTables.buttons.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/buttons.bootstrap.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/buttons.flash.min.js"></script>*
+    <script src="../../../../CONTROLLER/JS/datatables/buttons.html5.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/buttons.print.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/dataTables.fixedHeader.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/dataTables.keyTable.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/dataTables.responsive.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/responsive.bootstrap.min.js"></script>*
+    <script src="../../../../CONTROLLER/JS/datatables/datatables.scroller.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/jszip.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/pdfmake.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/datatables/vfs_fonts.js"></script>
     <script>
       $(document).ready(function() {
         var handleDataTableButtons = function() {
@@ -564,7 +608,7 @@
     <!-- /DATATABLES -->
 
     <!-- Parsley -->
-    <script src="../../../CONTROLLER/JS/parsley/parsley.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/parsley/parsley.min.js"></script>
     <script>
       $(document).ready(function() {
         $.listen('parsley:field:validate', function() {
@@ -598,6 +642,6 @@
 <?php
 
   }else{
-    header("Location: ../../../index.php");
+    header("Location: ../../../../index.php");
   }
 ?>

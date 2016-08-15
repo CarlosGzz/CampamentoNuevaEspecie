@@ -91,15 +91,15 @@
                                         Dashboard
                                     </a>
                                 </li>
-                                <li class="active"><a><i class="fa fa-users"></i>Vivientes <span class="fa fa-chevron-down"></span></a>
+                                <li><a><i class="fa fa-users"></i>Vivientes <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
                                         <li><a href="../../VIVIENTES/index.php">Vivientes</a>
                                         </li>
-                                        <li><a href="#">Familiares</a>
+                                        <li><a href="../../VIVIENTES/FAMILIARES/index.php">Familiares</a>
                                         </li>
-                                        <li><a href="../PALANCAS/index.php">Palancas</a>
+                                        <li><a href="../../VIVIENTES/PALANCAS/index.php">Palancas</a>
                                         </li>
-                                        <li><a href="../ENCUESTA/index.php">Encuesta</a>
+                                        <li><a href="../../VIVIENTES/ENCUESTA/index.php">Encuesta</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -107,15 +107,15 @@
                                     <ul class="nav child_menu" style="display: none">
                                         <li><a href="../../STAFF/index.php">Miembros</a>
                                         </li>
-                                        <li><a href="../../STAFF/STAFFASISTENTES/index.php">Campamento Actual</a>
+                                        <li><a href="../STAFFASISTENTES/index.php">Campamento Actual</a>
                                         </li>
-                                        <li><a href="../../STAFF/ASISTENCIAS/index.php">Asistencias</a>
+                                        <li><a href="../ASISTENCIAS/index.php">Asistencias</a>
                                         </li>
-                                        <li><a href="../../STAFF/PAGOSTAFF/index.php">Pagos</a>
+                                        <li><a href="../PAGOSTAFF/index.php">Pagos</a>
                                         </li>
-                                        <li><a href="../../STAFF/VEHICULOSTAFF/index.php">Vehiculos</a>
+                                        <li><a href="../VEHICULOSTAFF/index.php">Vehiculos</a>
                                         </li>
-                                        <li><a href="../../STAFF/HISTORIAL/index.php">Historial</a>
+                                        <li><a href="#">Historial</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -143,7 +143,7 @@
                                     if($_SESSION["usuario"] == "admin"){
                                         echo "
                                              <li>
-                                                <a href='Vista/AdminSite'>
+                                                <a href='../../AdminSite'>
                                                     <i class='fa fa-code'></i>AdminSite
                                                 </a>
                                              </li>
@@ -166,7 +166,7 @@
                         <a data-toggle="tooltip" data-placement="top" title="Lock" style="color: #6A6D6D;">
                             <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
                         </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Logout" style="color: #6A6D6D;" href="../../../../">
+                        <a data-toggle="tooltip" data-placement="top" title="Logout" style="color: #6A6D6D;" href="../../../">
                             <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                         </a>
                     </div>
@@ -209,7 +209,7 @@
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3> Familiares <small>informacion de familiares de  Vivientes </small></h3>
+                            <h3> Staff Asistente <small>staff que asistira al campamento</small></h3>
                         </div>
                     </div>
                     <!-- Table -->
@@ -218,7 +218,7 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Familiares de Vivientes<small></small></h2>
+                                    <h2>Tabla de Staff Asistente <small></small></h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
@@ -233,18 +233,109 @@
                                     <table id="datatable-buttons" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Viviente</th>
-                                                <th>Nombre de Familiar</th>
-                                                <th>Relacion</th>
-                                                <th>Telefono</th>
-                                                <th>Celular</th>
+                                                <th>Nombre</th>
+                                                <th>Apellido</th>
+                                                <th>Gaia</th>
+                                                <th>Rol</th>
+                                                <th>Pagado</th>
+                                                <th>Vehiculo</th>
                                                 <th>Correo</th>
+                                                <th>Telefono Cel</th>
                                             </tr>
                                         </thead>
                                         <?php
-                                            require "../../../../CONTROLLER/familiaresVivientesTabla.php";
+                                            require "../../../../CONTROLLER/staffTablaAsistentes.php";
                                         ?>
                                     </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel" >
+                                <div class="x_title">
+                                    <h2>Alta Staff a Campamento<small></small></h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="alert alert-danger" role="alert" id="mensajeStaffAsistente" style="display: none;"></div>
+                                <div class="x_content">
+                                    <br>
+                                    <form id="staffFormAsistente" data-parsley-validate class="form-horizontal form-label-left" >
+                                        <div class="form-group">
+                                            <label for="staff" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                                Staff<span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <select id="staff" class="form-control" required>
+                                                    <?php
+                                                        require "../../../../MODEL/connect.php";
+                                                        $data = $db->query("SELECT s.idStaff, s.nombre, s.apellidoPaterno, s.apellidoMaterno FROM staff as s LEFT JOIN staffCampamento as sc ON s.idStaff =sc.idStaff   ORDER BY nombre");
+                                                        $staff = array();
+                                                        while($object = mysqli_fetch_object($data)){
+                                                            $staff[]=$object;
+                                                        }
+                                                        $selectValues = "";
+                                                        foreach ($staff as $staf) {
+                                                            $selectValues.= "<option value=".$staf->idStaff." ";
+                                                            $selectValues.= ">".$staf->nombre." ".$staf->apellidoPaterno." ".$staf->apellidoMaterno."</option>";
+                                                        }
+                                                        echo $selectValues;
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="asistir" class="control-label col-md-3 col-sm-3 col-xs-12">Asistir a Campamento</label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="btn-group" data-toggle="buttons">
+                                                    <p>
+                                                        Si:
+                                                        <input id="asistir" type="radio" class="flat" name="asistir" value="1" checked/> 
+                                                        No:
+                                                        <input id="asistir" type="radio" class="flat" name="asistir" value="2" />
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="staffRol" class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> 
+                                                Rol
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" id="staffRol" name="staffRol" class="form-control col-md-7 col-xs-12" maxlength="45">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="staffPagado" class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> 
+                                                Pagado
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" id="staffPagado" name="staffPagado" class="form-control col-md-7 col-xs-12" maxlength="45">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="vehiculoStaff" class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> 
+                                                Vehiculo
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" id="vehiculoStaff" name="vehiculoStaff" class="form-control col-md-7 col-xs-12" maxlength="45">
+                                            </div>
+                                        </div>
+                                        <div class="ln_solid"></div>
+                                        <div class="form-group">
+                                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 col-sm-offset-3">
+                                                <button type="submit" class="btn btn-primary">Cancel</button>
+                                                <button id="submitStaff" type="submit" class="btn btn-success">Submit</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -275,21 +366,10 @@
     </div>
 
     <script src="../../../../CONTROLLER/JS/bootstrap.min.js"></script>
-
-    <!-- chart js -->
-    <script src="../../../../CONTROLLER/JS/chartjs/chart.min.js"></script>
     <!-- bootstrap progress js -->
-    <script src="../../../../CONTROLLER/JS/progressbar/bootstrap-progressbar.min.js"></script>
     <script src="../../../../CONTROLLER/JS/nicescroll/jquery.nicescroll.min.js"></script>
     <!-- icheck -->
     <script src="../../../../CONTROLLER/JS/icheck/icheck.min.js"></script>
-    <!-- gauge js -->
-    <script type="text/javascript" src="../../../../CONTROLLER/JS/gauge/gauge.min.js"></script>
-    <!-- daterangepicker -->
-    <script type="text/javascript" src="../../../../CONTROLLER/JS/moment/moment.min2.js"></script>
-    <script type="text/javascript" src="../../../../CONTROLLER/JS/datepicker/daterangepicker.js"></script>
-    <!-- Dropzone.js -->
-    <script src="../../../../CONTROLLER/JS/dropzone/dropzone.js"></script>
 
 
 
@@ -401,62 +481,6 @@
         TableManageButtons.init();
       });
     </script>
-    <script type="text/javascript">
-        var editor; // use a global for the submit and return data rendering in the examples
- 
-        $(document).ready(function() {
-            editor = new $.fn.dataTable.Editor( {
-                ajax: "../php/staff.php",
-                table: "#example",
-                fields: [ {
-                        label: "First name:",
-                        name: "first_name"
-                    }, {
-                        label: "Last name:",
-                        name: "last_name"
-                    }, {
-                        label: "Position:",
-                        name: "position"
-                    }, {
-                        label: "Office:",
-                        name: "office"
-                    }, {
-                        label: "Extension:",
-                        name: "extn"
-                    }, {
-                        label: "Start date:",
-                        name: "start_date",
-                        type: "datetime"
-                    }, {
-                        label: "Salary:",
-                        name: "salary"
-                    }
-                ]
-            } );
-         
-            $('#example').DataTable( {
-                dom: "Bfrtip",
-                ajax: "../php/staff.php",
-                columns: [
-                    { data: null, render: function ( data, type, row ) {
-                        // Combine the first and last names into a single table field
-                        return data.first_name+' '+data.last_name;
-                    } },
-                    { data: "position" },
-                    { data: "office" },
-                    { data: "extn" },
-                    { data: "start_date" },
-                    { data: "salary", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) }
-                ],
-                select: true,
-                buttons: [
-                    { extend: "create", editor: editor },
-                    { extend: "edit",   editor: editor },
-                    { extend: "remove", editor: editor }
-                ]
-            } );
-        } );
-    </script>
 
     <!-- /DATATABLES -->
 
@@ -487,6 +511,53 @@
       } catch (err) {}
     </script>
     <!-- /Parsley -->
+
+    <!-- Script para dar de alta un lugar con ajax--> 
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("#submitStaff").click(function(){
+            var nombre = $("#staff").val();
+            var asistir = $("#asistir").val();
+            var staffRol = $("#staffRol").val();
+            var staffPagado = $("#staffPagado").val();
+            var vehiculoStaff = $("#vehiculoStaff").val();
+            
+            // Returns successful data submission message when the entered information is stored in database.
+            if(nombre==''|| asistir=='' || apellidoMaterno=='') {
+                //alert("Favor de llenar todos los campos");
+            }else{
+                // AJAX Code To Submit Form.
+                if(asistir == 1)
+                $.ajax({
+                    url: "../../../CONTROLLER/encuestaStaff.php",
+                    method: 'POST',
+                    data: {nombre:nombre, apellidoPaterno:apellidoPaterno, apellidoMaterno:apellidoMaterno, genero:genero,fechaNacimiento:fechaNacimiento,carrera:carrera,universidad:universidad,gaia:gaia,rolDeseado:rolDeseado, pulsera:pulsera,correo:correo,telefonoCel:telefonoCel},
+                    cache: false,
+                    success: function(result){
+                        if(result=='1'){
+                            $('#mensajeStaffAsistente').empty(),
+                            $('#mensajeStaffAsistente').show(),
+                            $('#mensajeStaffAsistente').removeClass("alert alert-danger")
+                            $('#mensajeStaffAsistente').addClass("alert alert-success"),
+                            $('#mensajeStaffAsistente').html('<span aria-hidden="true"><i class="fa fa-check"></i></span>Muchas Gracias por llenar la Encuesta'),
+                            $("#staffForm ").trigger("reset"),
+                            $("#contenido").hide();
+                            $("#tablaStaff").load(location.href + " #tablaStaff");
+                        }else{
+                            $('#mensajeStaffAsistente').empty(),
+                            $('#mensajeStaffAsistente').removeClass("alert alert-success")
+                            $('#mensajeStaffAsistente').addClass("alert alert-danger"),
+                            $('#mensajeStaffAsistente').show(),
+                            $('#mensajeStaffAsistente').html('<span aria-hidden="true"><i class="fa fa-close"></i></span> Error al hacer la encuesta ');
+                        }
+                        //alert(result)
+                    }
+                });
+            }
+            return false;
+        });
+    }); 
+    </script>
 
 
 </body>

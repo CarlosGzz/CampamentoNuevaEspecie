@@ -17,10 +17,12 @@ function SmartWizard(target, options) {
     this.curStepIdx   = options.selected;
     this.steps        = $(target).children("ul").children("li").children("a"); // Get all anchors
     this.contentWidth = 0;
+    this.msgBox = $('<div class="msgBox"><div class="content"></div><a href="#" class="close"></a></div>');
     this.elmStepContainer = $('<div></div>').addClass("stepContainer");
     this.buttons = {
         next : $('<a>'+options.labelNext+'</a>').attr("href","#").addClass("buttonNext"),
         previous : $('<a>'+options.labelPrevious+'</a>').attr("href","#").addClass("buttonPrevious"),
+        finish  : $('<a>'+options.labelFinish+'</a>').attr("href","#").addClass("buttonFinish")
     };
 
     /*
@@ -49,9 +51,9 @@ function SmartWizard(target, options) {
         $this.elmStepContainer.append(allDivs);
         elmActionBar.append($this.loader);
         $this.target.append($this.elmStepContainer);
-        elmActionBar.append($this.buttons.finish)
-                    .append($this.buttons.previous)
-                    .append($this.buttons.next);
+        elmActionBar.append($this.buttons.previous)
+                    .append($this.buttons.next)
+                    .append($this.buttons.finish);
         $this.target.append(elmActionBar);
         this.contentWidth = $this.elmStepContainer.width();
 
@@ -434,8 +436,8 @@ $.fn.smartWizard.defaults = {
     enableFinishButton: false, // make finish button enabled always
     hideButtonsOnDisabled: false, // when the previous/next/finish buttons are disabled, hide them instead?
     errorSteps:[],    // Array Steps with errors
-    labelNext:'Siguiente',
-    labelPrevious:'Anterior',
+    labelNext:'Next',
+    labelPrevious:'Previous',
     labelFinish:'Finish',
     noForwardJumping: false,
     onLeaveStep: null, // triggers when leaving a step

@@ -20,6 +20,7 @@ $(document).ready(function() {
        } else{
         $('#mensaje').show();
         $('#mensaje').html('<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><span class="sr-only">Error:</span> Ingrese los datos');
+        alert(passx);
       }
   });
 });
