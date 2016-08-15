@@ -85,38 +85,55 @@
                         <div class="menu_section">
                             <h3></h3>
                             <ul class="nav side-menu">
-                                <li><a href="../"><i class="fa fa-bar-chart"></i>Dashboard</a>
-        
+                                <li>
+                                    <a href="../">
+                                        <i class="fa fa-bar-chart"></i>
+                                        Dashboard
+                                    </a>
                                 </li>
-                                <li class="active"><a><i class="fa fa-users"></i>Vivientes <span class="fa fa-chevron-down"></span></a>
+                                <li><a><i class="fa fa-users"></i>Vivientes <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li class="active"><a href="#">Vivientes</a>
+                                        <li><a href="../VIVIENTES/index.php">Vivientes</a>
                                         </li>
-                                        <li><a href="FAMILIARES/index.php">Familiares</a>
+                                        <li><a href="../VIVIENTES/FAMILIARES/index.php">Familiares</a>
                                         </li>
-                                        <li><a href="PALANCAS/index.php">Palancas</a>
+                                        <li><a href="../VIVIENTES/PALANCAS/index.php">Palancas</a>
+                                        </li>
+                                        <li><a href="../VIVIENTES/ENCUESTA/index.php">Encuesta</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-star"></i>Staff <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="../STAFF/index.php">Staff</a>
+                                        <li><a href="#">Miembros</a>
                                         </li>
-                                        <li><a href="../STAFF/PAGOS/pagosStaff.php">Pagos</a>
+                                        <li><a href="../STAFF/STAFFASISTENTES/index.php">Campamento Actual</a>
+                                        </li>
+                                        <li><a href="../STAFF/ASISTENCIAS/index.php">Asistencias</a>
+                                        </li>
+                                        <li><a href="../STAFF/PAGOSTAFF/index.php">Pagos</a>
+                                        </li>
+                                        <li><a href="../STAFF/VEHICULOSTAFF/index.php">Vehiculos</a>
+                                        </li>
+                                        <li><a href="../STAFF/HISTORIAL/index.php">Historial</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-bank"></i>Administrativo <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="../ADMINISTRATIVO/index.php">Ingresos/Egresos</a>
+                                        <li><a href="../ADMINISTRATIVO/INGRESOSEGRESOS/index.php">Ingresos/Egresos</a>
                                         </li>
-                                        <li><a href="../ADMINISTRATIVO/fotos.php">Gastos Fijos</a>
+                                        <li><a href="../ADMINISTRATIVO/GASTOSFIJOS/index.php">Gastos Fijos</a>
                                         </li>
-                                        <li><a href="../ADMINISTRATIVO/fotos.php">Cocina</a>
+                                        <li><a href="../ADMINISTRATIVO/OPERATIVO/index.php">Operativo</a>
                                         </li>
-                                        <li><a href="../ADMINISTRATIVO/fotos.php">Inventario Back</a>
+                                        <li><a href="../ADMINISTRATIVO/COCINA/index.php">Cocina</a>
                                         </li>
-                                        <li><a href="../ADMINISTRATIVO/fotos.php">Proveedores</a>
+                                        <li><a href="../ADMINISTRATIVO/INVENTARIOBACK/index.php">Inventario Back</a>
+                                        </li>
+                                        <li><a href="../ADMINISTRATIVO/PARAMEDICO/index.php">Paramedico</a>
+                                        </li>
+                                        <li><a href="ADMINISTRATIVO/PROVEEDORES/index.php">Proveedores</a>
                                         </li>
                                     </ul>
                                 </li>
