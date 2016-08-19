@@ -1581,10 +1581,10 @@
     <!-- Script para dar de alta al viviente con ajax--> 
     <script type="text/javascript">
         function submit(){
-            alert("hey");
+            //alert("hey");
             if($('#datosFamiliar').parsley().isValid() == true){
                 $('#datosFamiliar').parsley().validate();
-                alert("ho");
+                //alert("ho");
                 //Datos Personales
                 var nombre = $("#nombre").val();
                 var apellidoPaterno = $("#apellidoPaterno").val();
@@ -1697,7 +1697,7 @@
                                     $('#mensajeViviente').html('<span aria-hidden="true"><i class="fa fa-close"></i></span> Error al hacer la encuesta ');
                                 }
                             }
-                            alert(result);
+                            //alert(result);
                         }
                     });
                 }
@@ -1705,7 +1705,7 @@
             }else{
                 $('#datosFamiliar').parsley().validate();
                 $('#wizard').smartWizard('fixHeight','none');
-                alert("he");
+                //alert("he");
             }
         };
     </script>
