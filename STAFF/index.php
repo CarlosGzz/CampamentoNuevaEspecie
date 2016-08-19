@@ -69,7 +69,7 @@
                 <div class="x_content">
                         <div class="row">
                             <div class="row top_tiles">
-                                <div class="animated flipInY col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="animated flipInY col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                     <div class="tile-stats" id="vivientesPagados">
                                         <h1>
                                             <div class="title_right" style="text-align: center;">
@@ -85,27 +85,47 @@
                                     <div class="tile-stats" id="vivientesPagados">
                                         <h2>
                                             <div class="title_right" style="text-align: center;">
-                                                Vivientes Necesarios para FASE 1 
+                                                Fases de Vivientes 
                                             </div>
                                         </h2>
-                                        <h1 style="text-align: center;">
-                                            <br>
-                                            15 Vivientes
-                                            
-                                        </h1>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                            <h1 style="text-align: center;">
+                                                Fase 1
+                                                <br>
+                                                15 <h3 style="text-align: center;">Vivientes</h3>
+                                            </h1>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                            <h1 style="text-align: center;">
+                                                Fase 2
+                                                <br>
+                                                20 <h3 style="text-align: center;">Vivientes</h3>
+                                            </h1>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                            <h1 style="text-align: center;">
+                                                Fase 3
+                                                <br>
+                                                10 <h3 style="text-align: center;">Vivientes</h3>
+                                            </h1>
+                                        </div>
                                         <br>
                                     </div>
                                     <div class="tile-stats" id="vivientesPagados" style="text-align:center;">
                                         <h2>
                                             <a href="https://www.facebook.com/events/286859565003962/">Evento Facebook</a>
                                             <br>
-                                            <a href="">Encuesta</a>
                                             <br>
+                                            <a href="">Encuesta Vivientes</a>
+                                            <br>
+                                            <br>
+                                            <a href="">Encuesta Staff</a>
                                             <!--<a href="">Facebook</a>-->
                                         </h2>
                                     </div>
                                 </div>
-                                <div class="animated flipInYcol-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                     <div class="tile-stats" id="vivientesPagados">
                                         <div class="" role="tabpanel" data-example-id="togglable-tabs">
                                                 <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
