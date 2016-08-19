@@ -2,7 +2,11 @@
 
 	class conexion{
 
+<<<<<<< HEAD
 /*		private $conexion;
+=======
+		private $conexion;
+>>>>>>> origin/master
 		private $server = "us-cdbr-iron-east-04.cleardb.net";
 		private $username = "be53035c41706e";
 		private $password = "9467bfd68022bd8";
