@@ -141,7 +141,7 @@
                                         Celular<span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="telefonoCel" name="telefonoCel" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" id="telefonoCel" name="telefonoCel" required="required" class="form-control col-md-7 col-xs-12" maxlength="120">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -149,7 +149,7 @@
                                         Teléfono de Casa<span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="telefonoCasa" name="telefonoCasa" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" id="telefonoCasa" name="telefonoCasa" required="required" class="form-control col-md-7 col-xs-12" maxlength="120">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -157,7 +157,7 @@
                                         Correo<span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="email" id="correo" name="correo" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="email" id="correo" name="correo" required="required" class="form-control col-md-7 col-xs-12" maxlength="200">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -180,7 +180,7 @@
                                         Alergias
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="alergias" name="alergias" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" id="alergias" name="alergias" class="form-control col-md-7 col-xs-12" maxlength="120">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -212,7 +212,7 @@
                                         Otro
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="otroStaff" name="otroStaff" class="form-control col-md-7 col-xs-12" disabled>
+                                        <input type="text" id="otroStaff" name="otroStaff" class="form-control col-md-7 col-xs-12" maxlength="200" disabled>
                                     </div>
                                 </div>
                                 <br>
@@ -1258,7 +1258,7 @@
                                         ¿Cómo se describiría a si mismo?<span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <textarea id="descripcionUnoMismo" required="required" class="form-control" name="descripcionUnoMismo" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="1000" data-parsley-minlength-message="Una breve descripción de tu forma de ser"
+                                        <textarea id="descripcionUnoMismo" required="required" class="form-control" name="descripcionUnoMismo" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="400" data-parsley-minlength-message="Una breve descripción de tu forma de ser"
                                                         data-parsley-validation-threshold="10"></textarea>
                                     </div>
                                 </div>
@@ -1267,7 +1267,7 @@
                                         Menciona 4 cualidades <span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="cualidades" name="cualidades" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" id="cualidades" name="cualidades" required="required" class="form-control col-md-7 col-xs-12" maxlength="200">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -1275,7 +1275,7 @@
                                         Menciona 4 defectos <span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="defectos" name="defectos" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" id="defectos" name="defectos" required="required" class="form-control col-md-7 col-xs-12" maxlength="200">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -1300,9 +1300,11 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                </div>
+                                <br>
+                                <br>
                             </form>
-                            <br>
-                            <br>
                         </div>
                         <div id="step-3">
                             <h2 class="StepTitle">Datos Familiares y Amigos</h2>
@@ -1314,23 +1316,23 @@
                                         Nombre del Padre <span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="nombrePadre" name="nombrePadre" required="required" class="form-control col-md-7 col-xs-12" title="Nombre Completo">
+                                        <input type="text" id="nombrePadre" name="nombrePadre" required="required" class="form-control col-md-7 col-xs-12" title="Nombre Completo" maxlength="250">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="telefonoPadre" class="control-label col-md-4 col-sm-4 col-xs-12">
-                                        Teléfono oficina del padre<span class="required">*</span>
+                                        Teléfono oficina del padre
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="telefonoPadre" name="telefonoPadre" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" id="telefonoPadre" name="telefonoPadre"  class="form-control col-md-7 col-xs-12" maxlength="120">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="celularPadre" class="control-label col-md-4 col-sm-4 col-xs-12">
-                                        Teléfono celular del padre
+                                        Teléfono celular del padre <span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="celularPadre" name="celularPadre" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" id="celularPadre" name="celularPadre" required="required" class="form-control col-md-7 col-xs-12" maxlength="120">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -1338,7 +1340,7 @@
                                         Correo electrónico del padre <span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="email" id="correoPadre" name="correoPadre" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="email" id="correoPadre" name="correoPadre" required="required" class="form-control col-md-7 col-xs-12" maxlength="200">
                                     </div>
                                 </div>
                                 <br>
@@ -1348,7 +1350,7 @@
                                         Nombre de la madre  <span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="nombreMadre" name="nombreMadre" required="required" class="form-control col-md-7 col-xs-12" title="Nombre Completo">
+                                        <input type="text" id="nombreMadre" name="nombreMadre" required="required" class="form-control col-md-7 col-xs-12" title="Nombre Completo" maxlength="200">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -1356,7 +1358,7 @@
                                         Teléfono oficina de la madre
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="telefonoMadre" name="telefonoMadre" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" id="telefonoMadre" name="telefonoMadre" class="form-control col-md-7 col-xs-12" maxlength="120">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -1364,7 +1366,7 @@
                                         Teléfono celular de la madre<span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="celularMadre" name="celularMadre" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" id="celularMadre" name="celularMadre" required="required" class="form-control col-md-7 col-xs-12" maxlength="120">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -1372,7 +1374,7 @@
                                         Correo electrónico de la madre <span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="email" id="correoMadre" name="correoMadre" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="email" id="correoMadre" name="correoMadre" required="required" class="form-control col-md-7 col-xs-12" maxlength="200">
                                     </div>
                                 </div>
                                 <br>
@@ -1382,7 +1384,7 @@
                                         Nombre amigo #1  <span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="nombreAmigo1" name="nombreAmigo1" required="required" class="form-control col-md-7 col-xs-12" title="Nombre Completo">
+                                        <input type="text" id="nombreAmigo1" name="nombreAmigo1" required="required" class="form-control col-md-7 col-xs-12" title="Nombre Completo" maxlength="200">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -1390,7 +1392,7 @@
                                         Teléfono de casa amigo #1
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="telefonoAmigo1" name="telefonoAmigo1" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" id="telefonoAmigo1" name="telefonoAmigo1" class="form-control col-md-7 col-xs-12" maxlength="120">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -1398,7 +1400,7 @@
                                         Teléfono celular de amigo #1<span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="celularAmigo1" name="celularAmigo1" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" id="celularAmigo1" name="celularAmigo1" required="required" class="form-control col-md-7 col-xs-12" maxlength="120">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -1406,7 +1408,7 @@
                                         Correo electrónico de amigo #1 <span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="email" id="correoAmigo1" name="correoAmigo1" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="email" id="correoAmigo1" name="correoAmigo1" required="required" class="form-control col-md-7 col-xs-12" maxlength="200">
                                     </div>
                                 </div>
                                 <br>
@@ -1416,7 +1418,7 @@
                                         Nombre amigo #2  <span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="nombreAmigo2" name="nombreAmigo2" required="required" class="form-control col-md-7 col-xs-12" title="Nombre Completo">
+                                        <input type="text" id="nombreAmigo2" name="nombreAmigo2" required="required" class="form-control col-md-7 col-xs-12" title="Nombre Completo" maxlength="200">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -1424,7 +1426,7 @@
                                         Teléfono de casa amigo #2
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="telefonoAmigo2" name="telefonoAmigo2" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" id="telefonoAmigo2" name="telefonoAmigo2" class="form-control col-md-7 col-xs-12" maxlength="120">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -1432,7 +1434,7 @@
                                         Teléfono celular de amigo #2<span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="celularAmigo2" name="celularAmigo2" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" id="celularAmigo2" name="celularAmigo2" required="required" class="form-control col-md-7 col-xs-12" maxlength="120">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -1440,7 +1442,7 @@
                                         Correo electrónico de amigo #2 <span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="email" id="correoAmigo2" name="correoAmigo2" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="email" id="correoAmigo2" name="correoAmigo2" required="required" class="form-control col-md-7 col-xs-12" maxlength="200">
                                     </div>
                                 </div>
                                 <h4>Amigo 3</h4>
@@ -1449,7 +1451,7 @@
                                         Nombre amigo #3  <span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="nombreAmigo3" name="nombreAmigo3" required="required" class="form-control col-md-7 col-xs-12" title="Nombre Completo">
+                                        <input type="text" id="nombreAmigo3" name="nombreAmigo3" required="required" class="form-control col-md-7 col-xs-12" title="Nombre Completo" maxlength="200">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -1457,7 +1459,7 @@
                                         Teléfono de casa amigo #3
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="telefonoAmigo3" name="telefonoAmigo3" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" id="telefonoAmigo3" name="telefonoAmigo3" class="form-control col-md-7 col-xs-12" maxlength="120">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -1465,22 +1467,21 @@
                                         Teléfono celular de amigo #3<span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" id="celularAmigo3" name="celularAmigo3" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" id="celularAmigo3" name="celularAmigo3" required="required" class="form-control col-md-7 col-xs-12" maxlength="120">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="correoAmigo3" class="control-label col-md-4 col-sm-4 col-xs-12">
-                                        Correo electrónico de amigo #2 <span class="required">*</span>
+                                        Correo electrónico de amigo #3 <span class="required">*</span>
                                     </label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="email" id="correoAmigo3" name="correoAmigo3" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="email" id="correoAmigo3" name="correoAmigo3" required="required" class="form-control col-md-7 col-xs-12" maxlength="200">
                                     </div>
                                 </div>
-                                <br>
+                                <div class="alert alert-danger" role="alert" id="mensajeViviente" style="display: none;"></div>
                                 <br>
                                 <br>
                             </form>
-                            <div class="alert alert-danger" role="alert" id="mensajeViviente" style="display: none;"></div>
                         </div>
                     </div>
                 </div>
@@ -1580,8 +1581,10 @@
     <!-- Script para dar de alta al viviente con ajax--> 
     <script type="text/javascript">
         function submit(){
-            if($('#datosFamiliar').parsley().isValid() == false){
+            alert("hey");
+            if($('#datosFamiliar').parsley().isValid() == true){
                 $('#datosFamiliar').parsley().validate();
+                alert("ho");
                 //Datos Personales
                 var nombre = $("#nombre").val();
                 var apellidoPaterno = $("#apellidoPaterno").val();
@@ -1602,6 +1605,7 @@
                         var otroStaff = "";
                     }
                 }else{
+                    var otroStaff = "";
                     var staff ="";
                 }
 
@@ -1665,6 +1669,7 @@
                 
                 // Returns successful data submission message when the entered information is stored in database.
                 if(nombre==''|| apellidoPaterno=='' || apellidoMaterno=='' || genero==''|| fechaNacimiento==''|| celular==''||telefonoCasa==''||correo==''|| restriccionesAlimentarias==''|| medioCampamento==''||reservado=='' ||sabiduria=='' ||idealista=='' ||explosivo=='' ||optimismo=='' ||prudencia=='' ||disciplina=='' ||pasion=='' ||hipersensibilidad=='' ||generosidad=='' ||handy=='' ||teson=='' ||elocuente=='' ||aventado=='' ||empatia=='' ||misterioso=='' ||fortaleza=='' ||improvisar=='' ||afable=='' ||lealtad=='' ||franco=='' ||sobreprotector=='' ||creativo=='' ||movido=='' ||triunfar=='' ||personalidad=='' ||mismo=='' ||cualidades=='' ||defectos=='' ||fiesta=='' ||nombrePadre=='' ||celularPadre=='' ||correoPadre=='' ||nombreMadre=='' ||celularMadre=='' ||correoMadre=='' ||nombreAmigo1=='' ||celularAmigo1=='' ||correoAmigo1=='' ||nombreAmigo2=='' ||celularAmigo2=='' ||correoAmigo2=='' ||nombreAmigo3=='' ||celularAmigo3=='' ||correoAmigo3=='') {
+                    alert("falta algo");
                     //alert(nombre+"\n"+apellidoPaterno+"\n"+apellidoMaterno+"\n"+genero+"\n"+fechaNacimiento+"\n"+celular+"\n"+telefonoCasa+"\n"+correo+"\n"+restriccionesAlimentarias+"\n"+alergias+"\n"+medioCampamento+"\n"+reservado+"\n"+sabiduria+"\n"+idealista+"\n"+explosivo+"\n"+optimismo+"\n"+prudencia+"\n"+disciplina+"\n"+pasion+"\n"+hipersensibilidad+"\n"+generosidad+"\n"+handy+"\n"+teson+"\n"+elocuente+"\n"+aventado+"\n"+empatia+"\n"+misterioso+"\n"+fortaleza+"\n"+improvisar+"\n"+afable+"\n"+lealtad+"\n"+franco+"\n"+sobreprotector+"\n"+creativo+"\n"+movido+"\n"+triunfar+"\n"+personalidad+"\n"+mismo+"\n"+cualidades+"\n"+defectos+"\n"+fiesta+"\n"+nombrePadre+"\n"+celularPadre+"\n"+correoPadre+"\n"+nombreMadre+"\n"+celularMadre+"\n"+correoMadre+"\n"+nombreAmigo1+"\n"+celularAmigo1+"\n"+correoAmigo1+"\n"+nombreAmigo2+"\n"+celularAmigo2+"\n"+correoAmigo2+"\n"+nombreAmigo3+"\n"+celularAmigo3+"\n"+correoAmigo3);
                 }else{
                 // AJAX Code To Submit Form.
@@ -1692,13 +1697,16 @@
                                     $('#mensajeViviente').html('<span aria-hidden="true"><i class="fa fa-close"></i></span> Error al hacer la encuesta ');
                                 }
                             }
-                            //alert(result);
+                            alert(result);
                         }
                     });
                 }
                 return false;
+            }else{
+                $('#datosFamiliar').parsley().validate();
+                $('#wizard').smartWizard('fixHeight','none');
+                alert("he");
             }
-            $('#datosFamiliar').parsley().validate();
         };
     </script>
     <!--Tooltip-->
@@ -1740,7 +1748,6 @@
                 labelPrevious: 'Anterior',
                 labelFinish: 'Enviar',
                 hideButtonsOnDisabled: true
-
             });
 
             $('.buttonNext').addClass('btn btn-success');
@@ -1756,7 +1763,6 @@
               }
             function validateSteps(step){
                 var isStepValid = true;
-                $('#wizard').smartWizard('fixHeight','none');
                 // validate step 1
                 if(step == 1){
                     if($('#datosPersonales').parsley().isValid() == false){
@@ -1803,6 +1809,7 @@
                         $('#wizard').smartWizard('fixHeight','none');
                     }
                 }
+                $('#wizard').smartWizard('fixHeight','none');
                 return isStepValid;
             }
 

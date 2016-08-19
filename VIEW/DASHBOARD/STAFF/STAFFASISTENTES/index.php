@@ -292,7 +292,8 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="asistir" class="control-label col-md-3 col-sm-3 col-xs-12">Asistir a Campamento</label>
+                                            <label for="asistir" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                                Asistir a Campamento<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
                                                 <div class="btn-group" data-toggle="buttons">
                                                     <p>

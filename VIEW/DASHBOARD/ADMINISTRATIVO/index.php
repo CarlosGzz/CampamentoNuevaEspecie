@@ -105,7 +105,7 @@
                                 </li>
                                 <li><a><i class="fa fa-star"></i>Staff <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="#">Miembros</a>
+                                        <li><a href="../STAFF/index.php">Miembros</a>
                                         </li>
                                         <li><a href="../STAFF/STAFFASISTENTES/index.php">Campamento Actual</a>
                                         </li>
@@ -121,19 +121,19 @@
                                 </li>
                                 <li><a><i class="fa fa-bank"></i>Administrativo <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="../ADMINISTRATIVO/index.php">Ingresos/Egresos</a>
+                                        <li><a href="#">Ingresos/Egresos</a>
                                         </li>
-                                        <li><a href="../ADMINISTRATIVO/GASTOSFIJOS/index.php">Gastos Fijos</a>
+                                        <li><a href="GASTOSFIJOS/index.php">Gastos Fijos</a>
                                         </li>
-                                        <li><a href="../ADMINISTRATIVO/OPERATIVO/index.php">Operativo</a>
+                                        <li><a href="OPERATIVO/index.php">Operativo</a>
                                         </li>
-                                        <li><a href="../ADMINISTRATIVO/COCINA/index.php">Cocina</a>
+                                        <li><a href="COCINA/index.php">Cocina</a>
                                         </li>
-                                        <li><a href="../ADMINISTRATIVO/INVENTARIOBACK/index.php">Inventario Back</a>
+                                        <li><a href="INVENTARIOBACK/index.php">Inventario Back</a>
                                         </li>
-                                        <li><a href="../ADMINISTRATIVO/PARAMEDICO/index.php">Paramedico</a>
+                                        <li><a href="PARAMEDICO/index.php">Paramedico</a>
                                         </li>
-                                        <li><a href="../ADMINISTRATIVO/PROVEEDORES/index.php">Proveedores</a>
+                                        <li><a href="PROVEEDORES/index.php">Proveedores</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -207,10 +207,75 @@
             <!-- page content -->
             <div class="right_col" role="main">
                 <div class="">
-                    <div class="page-title">
-                        <div class="title_left">
-                            <h3> Staff <small>informacion de Staff</small></h3>
+                    <div class="row">
+                        <div class="page-title">
+                            <div class="title_left">
+                                <h3> Ingresos y Egresos <small></small></h3>
+                            </div>
                         </div>
+                    </div>
+                    <div class="row">
+                        <!--Fast Insights Vivientes-->
+                        <div class="row top_tiles" style="margin: 10px 0;">
+                            <div class="row top_tiles">
+                                <!--Viventes Pagados-->
+                                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                    <div class="tile-stats" id="vivientesPagados">
+                                        <div class="icon"><i class="fa fa-money"></i></div>
+                                        <div class="count">
+                                        <?php
+                                            require "../../../MODEL/connect.php";
+                                            $data = $db->query("SELECT SUM(monto) as ingresos FROM ingreso");
+                                            $ingresos=mysqli_fetch_assoc($data);
+                                            $data = $db->query("SELECT SUM(monto) as egresos FROM egreso");
+                                            $egresos=mysqli_fetch_assoc($data);
+                                            if(!empty($ingresos['ingresos'])){
+                                                echo $ingresos['ingresos'];
+                                            }else{
+                                                echo 0;
+                                            }
+                                        ?>
+                                        </div>
+                                        <h3>Total Ingresos</h3>
+                                        <p> </p>
+                                    </div>
+                                </div>
+                                <!--/Viventes Pagados-->
+                                <!--Viventes Encuestados-->
+                                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                    <div class="tile-stats">
+                                        <div class="icon"><i class="fa fa-file-text"></i></div>
+                                        <div class="count">
+                                        <?php
+                                            if(!empty($egresos['egresos'])){
+                                                echo $egresos['egresos'];
+                                            }else{
+                                                echo 0;
+                                            }
+                                        ?>
+                                        </div>
+                                        <h3>Total Egresos</h3>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <!--/Viventes Encuestados-->
+                                <!--Viventes Registrados-->
+                                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                    <div class="tile-stats">
+                                        <div class="icon"><i class="fa fa-user"></i></div>
+                                        <div class="count">
+                                        <?php
+                                            echo $ingresos['ingresos']-$egresos['egresos'];
+                                        ?>
+                                        </div>
+                                        <h3>Registrados</h3>
+                                        <p> </p>
+                                    </div>
+                                </div>
+                                <!--/Viventes Registrados-->
+                            </div>
+                        </div>
+                        <!--/Fast Insights Vivientes-->
                     </div>
                     <!-- Table -->
                     
@@ -218,7 +283,7 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Tabla de Staff <small></small></h2>
+                                    <h2>Tabla desglose de ingresos y egresos<small></small></h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
@@ -230,41 +295,65 @@
                                 <div class="x_content">
                                     <p class="text-muted font-13 m-b-30">
                                     </p>
-                                    <table id="datatable-buttons" class="table table-striped table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Nombre</th>
-                                                <th>Apellido</th>
-                                                <th>Genero</th>
-                                                <th>Edad</th>
-                                                <th>Correo</th>
-                                                <th>Celular</th>
-                                                <th>Gaia</th>
-                                                <th>Rol Deseado</th>
-                                                <th>Pulsera</th>
-                                                <th>Carrera</th>
-                                                <th>Universidad</th>
-                                            </tr>
-                                        </thead>
-                                        <?php
-                                         require "../../../CONTROLLER/staffTabla.php";
-                                        ?>
-                                    </table>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <h1>Ingresos</h1>
+                                        <table id="tablaIngresos" class="table table-striped table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Fecha</th>
+                                                    <th>Viviente/Staff</th>
+                                                    <th>Nombre Persona</th>
+                                                    <th>Modo de Pago</th>
+                                                    <th>Monto</th>
+                                                </tr>
+                                            </thead>
+                                            <?php
+                                                require "../../../CONTROLLER/ingresosTabla.php";
+                                            ?>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <h1>Egresos</h1>
+                                        <table id="tablaEgresos" class="table table-striped table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Fecha</th>
+                                                    <th>Area</th>
+                                                    <th>Nombre Persona</th>
+                                                    <th>Descripción</th>
+                                                    <th>Monto</th>
+                                                </tr>
+                                            </thead>
+                                            <?php
+                                             //require "../../../CONTROLLER/staffTabla.php";
+                                            ?>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="x_panel" >
+                                <div class="x_title">
+                                    <h2>Alta Ingreso <small></small></h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
                                 <div class="alert alert-danger" role="alert" id="mensajeStaff" style="display: none;"></div>
                                 <div class="x_content">
                                     <br>
                                     <form id="staffForm" data-parsley-validate class="form-horizontal form-label-left" >
                                         <div class="form-group">
                                             <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> 
-                                                Nombre<span class="required">*</span>
+                                                Fecha<span class="required">*</span>
                                             </label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
                                                 <input type="text" id="nombre" name="nombre" required="required" class="form-control col-md-7 col-xs-12" maxlength="120">
@@ -493,35 +582,67 @@
     <script>
       $(document).ready(function() {
         var handleDataTableButtons = function() {
-          if ($("#datatable-buttons").length) {
-            $("#datatable-buttons").DataTable({
-              dom: "Bfrtip",
-              keys: true,
-              buttons: [
-                {
-                  extend: "copy",
-                  className: "btn-sm"
-                },
-                {
-                  extend: "csv",
-                  className: "btn-sm"
-                },
-                {
-                  extend: "excel",
-                  className: "btn-sm"
-                },
-                {
-                  extend: "pdfHtml5",
-                  className: "btn-sm"
-                },
-                {
-                  extend: "print",
-                  className: "btn-sm"
-                },
-              ],
-              responsive: true
-            });
-          }
+          if ($("#tablaIngresos").length) {
+                $("#tablaIngresos").DataTable({
+                  dom: "Bfrtip",
+                  keys: true,
+                  buttons: [
+                    {
+                      extend: "copy",
+                      className: "btn-sm"
+                    },
+                    {
+                      extend: "csv",
+                      className: "btn-sm"
+                    },
+                    {
+                      extend: "excel",
+                      className: "btn-sm"
+                    },
+                    {
+                      extend: "pdfHtml5",
+                      className: "btn-sm"
+                    },
+                    {
+                      extend: "print",
+                      className: "btn-sm"
+                    },
+                  ],
+                  responsive: true
+                });
+            }
+        };
+
+        var handleDataTableButtons2 = function() {
+          if ($("#tablaEgresos").length) {
+                $("#tablaEgresos").DataTable({
+                  dom: "Bfrtip",
+                  keys: true,
+                  buttons: [
+                    {
+                      extend: "copy",
+                      className: "btn-sm"
+                    },
+                    {
+                      extend: "csv",
+                      className: "btn-sm"
+                    },
+                    {
+                      extend: "excel",
+                      className: "btn-sm"
+                    },
+                    {
+                      extend: "pdfHtml5",
+                      className: "btn-sm"
+                    },
+                    {
+                      extend: "print",
+                      className: "btn-sm"
+                    },
+                  ],
+                  responsive: true
+                });
+            }
         };
 
         TableManageButtons = function() {
@@ -529,6 +650,7 @@
           return {
             init: function() {
               handleDataTableButtons();
+              handleDataTableButtons2();
             }
           };
         }();

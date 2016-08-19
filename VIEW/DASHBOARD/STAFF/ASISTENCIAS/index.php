@@ -121,7 +121,7 @@
                                 </li>
                                 <li><a><i class="fa fa-bank"></i>Administrativo <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="../../ADMINISTRATIVO/INGRESOSEGRESOS/index.php">Ingresos/Egresos</a>
+                                        <li><a href="../../ADMINISTRATIVO/index.php">Ingresos/Egresos</a>
                                         </li>
                                         <li><a href="../../ADMINISTRATIVO/GASTOSFIJOS/index.php">Gastos Fijos</a>
                                         </li>
@@ -231,20 +231,8 @@
                                     <p class="text-muted font-13 m-b-30">
                                     </p>
                                     <table id="datatable-buttons" class="table table-striped table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Nombre</th>
-                                                <th>Apellido</th>
-                                                <th>Gaia</th>
-                                                <th>Rol</th>
-                                                <th>Pagado</th>
-                                                <th>Vehiculo</th>
-                                                <th>Correo</th>
-                                                <th>Telefono Cel</th>
-                                            </tr>
-                                        </thead>
                                         <?php
-                                            require "../../../../CONTROLLER/staffTablaAsistentes.php";
+                                            require "../../../../CONTROLLER/staffAsistenciaJuntasTabla.php";
                                         ?>
                                     </table>
                                 </div>
@@ -255,7 +243,7 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel" >
                                 <div class="x_title">
-                                    <h2>Alta Staff a Campamento<small></small></h2>
+                                    <h2>Alta de Junta y Staff<small></small></h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
@@ -266,73 +254,71 @@
                                 </div>
                                 <div class="alert alert-danger" role="alert" id="mensajeStaffAsistente" style="display: none;"></div>
                                 <div class="x_content">
-                                    <br>
-                                    <form id="staffFormAsistente" data-parsley-validate class="form-horizontal form-label-left" >
+                                    <form id="demo-form2"  action="../../../../CONTROLLER/altaJunta.php" method="POST" data-parsley-validate="" class="form-horizontal form-label-left">
                                         <div class="form-group">
-                                            <label for="staff" class="control-label col-md-3 col-sm-3 col-xs-12">
-                                                Staff<span class="required">*</span>
+                                            <label for="nombreJunta" class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> 
+                                                Nombre de junta<span class="required">*</span>
                                             </label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <select id="staff" class="form-control" required>
-                                                    <?php
+                                                <input type="text" id="nombreJunta" name="nombreJunta" class="form-control col-md-7 col-xs-12" maxlength="140" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="fechaJunta" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                                Fecha de junta<span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input id="fechaJunta" name="fechaJunta" class="form-control col-md-7 col-xs-12" required="required" type="date" title="Mes/Dia/Año">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="asistir" class="control-label col-md-3 col-sm-3 col-xs-12">Asistir a Campamento</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <div class="btn-group" data-toggle="buttons">
+                                                        <?php
                                                         require "../../../../MODEL/connect.php";
                                                         $data = $db->query("SELECT s.idStaff, s.nombre, s.apellidoPaterno, s.apellidoMaterno FROM staff as s LEFT JOIN staffCampamento as sc ON s.idStaff =sc.idStaff   ORDER BY nombre");
                                                         $staff = array();
                                                         while($object = mysqli_fetch_object($data)){
                                                             $staff[]=$object;
                                                         }
-                                                        $selectValues = "";
+                                                        $staffValues = "<p>";
+                                                        $staffValues.= "<div class='row'>";
+                                                        $staffValues.= "<div class='col-md-8 col-sm-9 col-xs-6'>";
+                                                        $staffValues.= "Nombre De Staff";
+                                                        $staffValues.= "</div>";
+                                                        $staffValues.= "<div class='col-md-2 col-sm-1 col-xs-6'>";
+                                                        $staffValues.= "Asistio";
+                                                        $staffValues.= "</div>";
+                                                        $staffValues.= "<div class='col-md-2 col-sm-1 col-xs-6'>";
+                                                        $staffValues.= "No Asistio";
+                                                        $staffValues.= "</div>";
+                                                        $staffValues.= "</div>";
                                                         foreach ($staff as $staf) {
-                                                            $selectValues.= "<option value=".$staf->idStaff." ";
-                                                            $selectValues.= ">".$staf->nombre." ".$staf->apellidoPaterno." ".$staf->apellidoMaterno."</option>";
+                                                            $staffValues.= "<div class='row'>";
+                                                            $staffValues.= "<div class='col-md-9 col-sm-9 col-xs-8'>";
+                                                            $staffValues.= $staf->nombre." ".$staf->apellidoPaterno." ".$staf->apellidoMaterno;
+                                                            $staffValues.= "</div>";
+                                                            $staffValues.= "<div class='col-md-1 col-sm-1 col-xs-2'>";
+                                                            $staffValues.= ' <input id="staff'.$staf->idStaff.'" type="radio" class="flat" name="staff'.$staf->idStaff.'" value="1"/>';
+                                                            $staffValues.= "</div>";
+                                                            $staffValues.= "<div class='col-md-1 col-sm-1 col-xs-2'>";
+                                                            $staffValues.= ' <input id="staff'.$staf->idStaff.'" type="radio" class="flat" name="staff'.$staf->idStaff.'" value="0" checked/>';
+                                                            $staffValues.= "</div>";
+                                                            $staffValues.= "<br>";
+                                                            $staffValues.= "</div>";
                                                         }
-                                                        echo $selectValues;
+                                                        $staffValues.= "</p>";
+                                                        echo $staffValues;
                                                     ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="asistir" class="control-label col-md-3 col-sm-3 col-xs-12">Asistir a Campamento</label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <div class="btn-group" data-toggle="buttons">
-                                                    <p>
-                                                        Si:
-                                                        <input id="asistir" type="radio" class="flat" name="asistir" value="1" checked/> 
-                                                        No:
-                                                        <input id="asistir" type="radio" class="flat" name="asistir" value="2" />
-                                                    </p>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="staffRol" class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> 
-                                                Rol
-                                            </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="text" id="staffRol" name="staffRol" class="form-control col-md-7 col-xs-12" maxlength="45">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="staffPagado" class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> 
-                                                Pagado
-                                            </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="text" id="staffPagado" name="staffPagado" class="form-control col-md-7 col-xs-12" maxlength="45">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="vehiculoStaff" class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> 
-                                                Vehiculo
-                                            </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="text" id="vehiculoStaff" name="vehiculoStaff" class="form-control col-md-7 col-xs-12" maxlength="45">
                                             </div>
                                         </div>
                                         <div class="ln_solid"></div>
                                         <div class="form-group">
-                                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 col-sm-offset-3">
+                                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                                                 <button type="submit" class="btn btn-primary">Cancel</button>
-                                                <button id="submitStaff" type="submit" class="btn btn-success">Submit</button>
+                                                <button id="submitStaffAsistencia" type="submit" class="btn btn-success">Submit</button>
                                             </div>
                                         </div>
                                     </form>
@@ -491,12 +477,12 @@
         $.listen('parsley:field:validate', function() {
           validateFront();
         });
-        $('#demo-form .btn').on('click', function() {
-          $('#demo-form').parsley().validate();
+        $('#demo-form2 .btn').on('click', function() {
+          $('#demo-form2').parsley().validate();
           validateFront();
         });
         var validateFront = function() {
-          if (true === $('#demo-form').parsley().isValid()) {
+          if (true === $('#demo-form2').parsley().isValid()) {
             $('.bs-callout-info').removeClass('hidden');
             $('.bs-callout-warning').addClass('hidden');
           } else {
@@ -511,52 +497,30 @@
       } catch (err) {}
     </script>
     <!-- /Parsley -->
-
-    <!-- Script para dar de alta un lugar con ajax--> 
-    <script type="text/javascript">
-    $(document).ready(function(){
-        $("#submitStaff").click(function(){
-            var nombre = $("#staff").val();
-            var asistir = $("#asistir").val();
-            var staffRol = $("#staffRol").val();
-            var staffPagado = $("#staffPagado").val();
-            var vehiculoStaff = $("#vehiculoStaff").val();
-            
-            // Returns successful data submission message when the entered information is stored in database.
-            if(nombre==''|| asistir=='' || apellidoMaterno=='') {
-                //alert("Favor de llenar todos los campos");
+    <!-- bootstrap-daterangepicker -->
+    <script src="../../../../CONTROLLER/JS/moment/moment.min.js"></script>
+    <script src="../../../../CONTROLLER/JS/datepicker/daterangepicker.js"></script>
+    <!-- bootstrap-daterangepicker and browser validation -->
+    <script>
+        var is_explorer = navigator.userAgent.indexOf('MSIE') > -1;
+        var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
+        var is_safari = navigator.userAgent.indexOf("Safari") > -1;
+        var isChrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+        $(document).ready(function() {
+            if (isChrome) {
+                //do nothing :)
             }else{
-                // AJAX Code To Submit Form.
-                if(asistir == 1)
-                $.ajax({
-                    url: "../../../CONTROLLER/encuestaStaff.php",
-                    method: 'POST',
-                    data: {nombre:nombre, apellidoPaterno:apellidoPaterno, apellidoMaterno:apellidoMaterno, genero:genero,fechaNacimiento:fechaNacimiento,carrera:carrera,universidad:universidad,gaia:gaia,rolDeseado:rolDeseado, pulsera:pulsera,correo:correo,telefonoCel:telefonoCel},
-                    cache: false,
-                    success: function(result){
-                        if(result=='1'){
-                            $('#mensajeStaffAsistente').empty(),
-                            $('#mensajeStaffAsistente').show(),
-                            $('#mensajeStaffAsistente').removeClass("alert alert-danger")
-                            $('#mensajeStaffAsistente').addClass("alert alert-success"),
-                            $('#mensajeStaffAsistente').html('<span aria-hidden="true"><i class="fa fa-check"></i></span>Muchas Gracias por llenar la Encuesta'),
-                            $("#staffForm ").trigger("reset"),
-                            $("#contenido").hide();
-                            $("#tablaStaff").load(location.href + " #tablaStaff");
-                        }else{
-                            $('#mensajeStaffAsistente').empty(),
-                            $('#mensajeStaffAsistente').removeClass("alert alert-success")
-                            $('#mensajeStaffAsistente').addClass("alert alert-danger"),
-                            $('#mensajeStaffAsistente').show(),
-                            $('#mensajeStaffAsistente').html('<span aria-hidden="true"><i class="fa fa-close"></i></span> Error al hacer la encuesta ');
-                        }
-                        //alert(result)
-                    }
-                });
+                if ( is_firefox || is_safari || is_explorer) {
+                    $('#fechaNacimiento').addClass("date-picker");
+                    $('#fechaNacimiento').daterangepicker({
+                        singleDatePicker: true,
+                        showDropdowns: true,
+                        calender_style: "picker_4"
+                    });
+                }
             }
-            return false;
+
         });
-    }); 
     </script>
 
 

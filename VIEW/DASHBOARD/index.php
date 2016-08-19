@@ -41,7 +41,6 @@
 
 
 <body class="nav-md" >
-    <div class="avgrund-cover"></div>
     <div class="container body avgrund-contents">
         <div class="main_container">
 
@@ -79,8 +78,11 @@
                         <div class="menu_section">
                             <h3></h3>
                             <ul class="nav side-menu">
-                                <li class="active" ><a><i class="fa fa-bar-chart"></i>Dashboard</a>
-        
+                                <li class="active" >
+                                    <a>
+                                        <i class="fa fa-bar-chart"></i>
+                                        Dashboard
+                                    </a>
                                 </li>
                                 <li><a><i class="fa fa-users"></i>Vivientes <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
@@ -112,7 +114,7 @@
                                 </li>
                                 <li><a><i class="fa fa-bank"></i>Administrativo <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="ADMINISTRATIVO/INGRESOSEGRESOS/index.php">Ingresos/Egresos</a>
+                                        <li><a href="ADMINISTRATIVO/index.php">Ingresos/Egresos</a>
                                         </li>
                                         <li><a href="ADMINISTRATIVO/GASTOSFIJOS/index.php">Gastos Fijos</a>
                                         </li>
@@ -210,7 +212,7 @@
                         <div class="row top_tiles">
                             <!--Viventes Pagados-->
                             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="tile-stats" onclick="avgrund.activate( 'stack' );" id="vivientesPagados">
+                                <div class="tile-stats" id="vivientesPagados">
                                     <div class="icon"><i class="fa fa-money"></i></div>
                                     <div class="count">
                                     <?php
@@ -353,10 +355,12 @@
                                         <?php
                                             $data = $db->query("SELECT COUNT(idStaff) as viejosStaff FROM staff WHERE pulsera ='rojo' OR pulsera ='plateada'");
                                             $viejosStaff=mysqli_fetch_assoc($data);
-                                            echo $viejosStaff['viejosStaff']."/".$totalStaff['totalStaff']-$viejosStaff['viejosStaff'];
+                                            echo $viejosStaff['viejosStaff'];
+                                            echo "/";
+                                            echo $totalStaff['totalStaff']-$viejosStaff['viejosStaff'];
                                         ?>
                                         </div>
-                                        <h3 style="font-size: 15px;">Viejos/Nuevos</h3>
+                                        <h3 style="font-size: 12px;">Viejos/Nuevos</h3>
                                         <p></p>
                                     </div>
                                 </div>

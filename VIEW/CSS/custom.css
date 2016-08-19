@@ -1718,6 +1718,13 @@ h4.graph_title {
   top: 10px;
   z-index: 1;
 }
+.tile-stats .icon4 {
+  color: #2196f3;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  z-index: 1;
+}
 .tile-stats .icon3 {
   position: absolute;
   right: 5px;
@@ -1734,6 +1741,13 @@ h4.graph_title {
 .tile-stats .icon2 i {
   margin: 0;
   font-size: 50px;
+  line-height: 0;
+  vertical-align: bottom;
+  padding: 0;
+}
+.tile-stats .icon4 i {
+  margin: 0;
+  font-size: 60px;
   line-height: 0;
   vertical-align: bottom;
   padding: 0;

@@ -121,7 +121,7 @@
                                 </li>
                                 <li><a><i class="fa fa-bank"></i>Administrativo <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="../../ADMINISTRATIVO/INGRESOSEGRESOS/index.php">Ingresos/Egresos</a>
+                                        <li><a href="../../ADMINISTRATIVO/index.php">Ingresos/Egresos</a>
                                         </li>
                                         <li><a href="../../ADMINISTRATIVO/GASTOSFIJOS/index.php">Gastos Fijos</a>
                                         </li>
