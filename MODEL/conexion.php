@@ -1,19 +1,18 @@
 <?php
 
 	class conexion{
-		/*
 		private $conexion;
 		private $server = "us-cdbr-iron-east-04.cleardb.net";
 		private $username = "be53035c41706e";
 		private $password = "9467bfd68022bd8";
 		private $dbname = "heroku_b09fc9ff7592b1e";
-		*/
+		/*
 		private $server = "localhost";
 		private $username = "root";
 		private $password = "kobyjzt";
 		private $dbname = "LXM";
 		private $user;
-		private $pass;
+		private $pass;*/
 
 
 		public function __construct(){
