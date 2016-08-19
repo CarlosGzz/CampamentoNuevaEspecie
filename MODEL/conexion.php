@@ -1,10 +1,7 @@
 <?php
 
 	class conexion{
-<<<<<<< HEAD
-		
-=======
->>>>>>> origin/master
+
 		private $conexion;
 		private $server = "us-cdbr-iron-east-04.cleardb.net";
 		private $username = "be53035c41706e";
