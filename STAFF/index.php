@@ -116,10 +116,9 @@
                                         <h2>
                                             <a href="https://www.facebook.com/events/286859565003962/">Evento Facebook</a>
                                             <br>
-<<<<<<< HEAD
-=======
+
                                             <a href="http://www.lxm.org.mx/encuesta.html">Encuesta</a>
->>>>>>> origin/master
+
                                             <br>
                                             <a href="">Encuesta Vivientes</a>
                                             <br>
