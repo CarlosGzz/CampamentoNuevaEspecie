@@ -1,7 +1,10 @@
 <?php
 
 	class conexion{
+<<<<<<< HEAD
 		
+=======
+>>>>>>> origin/master
 		private $conexion;
 		private $server = "us-cdbr-iron-east-04.cleardb.net";
 		private $username = "be53035c41706e";
@@ -13,7 +16,7 @@
 		private $password = "kobyjzt";
 		private $dbname = "LXM";*/
 		private $user;
-		private $pass;
+		private $pass;*/
 
 
 		public function __construct(){
