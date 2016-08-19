@@ -99,7 +99,7 @@
                                         <h2>
                                             <a href="https://www.facebook.com/events/286859565003962/">Evento Facebook</a>
                                             <br>
-                                            <a href="">Encuesta</a>
+                                            <a href="http://www.lxm.org.mx/encuesta.html">Encuesta</a>
                                             <br>
                                             <!--<a href="">Facebook</a>-->
                                         </h2>
