@@ -116,14 +116,11 @@
                                         <h2>
                                             <a href="https://www.facebook.com/events/286859565003962/">Evento Facebook</a>
                                             <br>
-
-                                            <a href="http://www.lxm.org.mx/encuesta.html">Encuesta</a>
-
                                             <br>
-                                            <a href="">Encuesta Vivientes</a>
+                                            <a href="http://www.lxm.org.mx/encuesta.html">Encuesta Vivientes</a>
                                             <br>
                                             <br>
-                                            <a href="">Encuesta Staff</a>
+                                            <a href="../encuestaStaff.php">Encuesta Staff</a>
                                             <!--<a href="">Facebook</a>-->
                                         </h2>
                                     </div>
